@@ -38,12 +38,12 @@ class ApplicationController < ActionController::API
     !!current_user
   end
 
-  def login(user)
+  def login!(user)
     session[:session_token] = user.reset_session_token!
   end
 
-  def logout
-    curren_user.reset_session_token! if logged_in?
+  def logout!
+    current_user.reset_session_token! if logged_in?
     session[:session_token] = nil
     @current_user = nil
   end
