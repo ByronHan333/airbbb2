@@ -1479,3 +1479,181 @@ NameError - undefined local variable or method `unauthorized' for #<Api::Session
 Completed 500 Internal Server Error in 196ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 4071)
 
 
+Started GET "/api/session" for 127.0.0.1 at 2022-12-28 22:11:58 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 5.7ms | Allocations: 3605)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-12-28 22:12:01 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 737)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-12-28 22:12:12 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 737)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-28 22:12:12 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-28 22:12:16 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/session" for 127.0.0.1 at 2022-12-28 22:12:18 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 893)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-28 22:12:18 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/session" for 127.0.0.1 at 2022-12-28 22:12:46 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 737)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-28 22:12:46 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/session" for 127.0.0.1 at 2022-12-28 22:12:47 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 738)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-28 22:12:47 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/session" for 127.0.0.1 at 2022-12-28 22:12:47 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 896)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-28 22:12:47 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-28 22:12:50 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/session" for 127.0.0.1 at 2022-12-28 22:14:53 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 737)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-12-28 22:14:54 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 737)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-12-28 22:15:04 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 737)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-12-28 22:15:07 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 737)
+
+
+Started DELETE "/api/session" for 127.0.0.1 at 2022-12-28 22:15:23 -0800
+Processing by Api::SessionsController#destroy as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+No template found for Api::SessionsController#destroy, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.1ms | Allocations: 767)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-12-28 22:15:31 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 737)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-12-28 22:15:41 -0800
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"credential"=>"test", "password"=>"[FILTERED]", "session"=>{"credential"=>"test", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.1ms | Allocations: 117)
+
+NameError - undefined local variable or method `unauthorized' for #<Api::SessionsController:0x000000000057d0>
+
+      render json: {errors: ['The provided credentials were invalid.']}, status: unauthorized
+                                                                                 ^^^^^^^^^^^^:
+	app/controllers/api/sessions_controller.rb:19:in `create'
+
+Completed 500 Internal Server Error in 192ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 4160)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-12-28 22:15:44 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 737)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-12-28 22:15:48 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 737)
+
+
+Started POST "/api/session" for 127.0.0.1 at 2022-12-28 22:16:12 -0800
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"credential"=>"username", "password"=>"[FILTERED]", "session"=>{"credential"=>"username", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "username"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:28:in `find_by_credentials'
+  Rendering api/errors/internal_server_error.json.jbuilder
+  Rendered api/errors/internal_server_error.json.jbuilder (Duration: 0.1ms | Allocations: 103)
+
+NameError - undefined local variable or method `unauthorized' for #<Api::SessionsController:0x00000000005870>
+
+      render json: {errors: ['The provided credentials were invalid.']}, status: unauthorized
+                                                                                 ^^^^^^^^^^^^:
+	app/controllers/api/sessions_controller.rb:19:in `create'
+
+Completed 500 Internal Server Error in 7ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 4036)
+
+
+Started GET "/main.74a17084d66180dce6be.hot-update.json" for 127.0.0.1 at 2022-12-28 22:17:38 -0800
+Started GET "/api/session" for 127.0.0.1 at 2022-12-28 22:17:38 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/main.74a17084d66180dce6be.hot-update.json"):
+  
+Started GET "/api/session" for 127.0.0.1 at 2022-12-28 22:17:47 -0800
+Started GET "/api/session" for 127.0.0.1 at 2022-12-28 22:18:01 -0800
+Started GET "/api/session" for 127.0.0.1 at 2022-12-28 22:18:10 -0800
