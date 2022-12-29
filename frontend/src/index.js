@@ -25,9 +25,17 @@ const Root = () => {
   );
 }
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Root />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const renderApplication = () => {
+  ReactDOM.render(
+    <React.StrictMode>
+      <Root />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+}
+
+if (sessionStorage.getItem("X-CSRF-Token") === null) {
+  restoreCSRF().then(renderApplication);
+} else {
+  renderApplication();
+}

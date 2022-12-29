@@ -937,3 +937,69 @@ Can't verify CSRF token authenticity.
 Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 856)
 
 
+Started GET "/" for 127.0.0.1 at 2022-12-28 15:02:47 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/byronhan/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/byronhan/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.7ms | Allocations: 526)
+Completed 200 OK in 10ms (Views: 5.3ms | ActiveRecord: 0.0ms | Allocations: 2805)
+
+
+Started GET "/api/test" for 127.0.0.1 at 2022-12-28 15:03:42 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/api/test"):
+  
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-28 15:03:42 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/session" for 127.0.0.1 at 2022-12-28 15:04:11 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 14ms (Views: 0.5ms | ActiveRecord: 5.3ms | Allocations: 4871)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-28 15:09:27 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/session" for 127.0.0.1 at 2022-12-28 19:34:09 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 4948)
+
+
+Started POST "/api/test?login" for 127.0.0.1 at 2022-12-28 19:34:36 -0800
+Processing by ApplicationController#test as */*
+  Parameters: {"login"=>nil}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 855)
+
+
+Started POST "/api/test?login" for 127.0.0.1 at 2022-12-28 19:34:45 -0800
+Processing by ApplicationController#test as */*
+  Parameters: {"login"=>nil, "application"=>{}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14:in `test'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:68:in `generate_unique_session_token'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:58:in `reset_session_token!'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "Demo-lition"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:58:in `reset_session_token!'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@user.io"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:58:in `reset_session_token!'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "[FILTERED]"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:58:in `reset_session_token!'
+  [1m[36mUser Update (5.8ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "[FILTERED]"], ["updated_at", "2022-12-29 03:34:45.525904"], ["id", 1]]
+  ↳ app/models/user.rb:58:in `reset_session_token!'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:58:in `reset_session_token!'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 44ms (Views: 0.2ms | ActiveRecord: 23.3ms | Allocations: 13523)
+
+
