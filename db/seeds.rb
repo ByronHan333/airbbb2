@@ -13,13 +13,42 @@ ApplicationRecord.transaction do
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
   ApplicationRecord.connection.reset_pk_sequence!('users')
+  ApplicationRecord.connection.reset_pk_sequence!('listings')
 
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:
   User.create!(
-    username: 'Demo-lition',
-    email: 'demo@user.io',
+    username: 'username',
+    email: 'username@username.com',
     password: 'password'
+  )
+
+  puts "Creating listings..."
+  # Create one user with an easy to remember username, email, and password:
+  Listing.create!(
+    title: 'house title 1',
+    description: 'description',
+    host_id: 1,
+    address: 'address',
+    latitute: 37.773972,
+    longitude: -122.431297,
+    price: 1000,
+    num_beds: 4,
+    has_wifi: true,
+    has_ac: true
+  )
+
+  Listing.create!(
+    title: 'house title 2',
+    description: 'description 2',
+    host_id: 1,
+    address: 'address 2',
+    latitute: 37.773972,
+    longitude: -122.431297,
+    price: 2000,
+    num_beds: 6,
+    has_wifi: true,
+    has_ac: true
   )
 
   # More users

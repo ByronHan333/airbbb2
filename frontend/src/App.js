@@ -10,14 +10,14 @@ function App() {
     <>
       <Navigation />
         <Switch>
+          <Route exact path="/">
+            <ListingIndexPage />
+          </Route>
           <Route path="/login">
             <LoginFormPage />
           </Route>
           <Route path="/signup">
             <SignupFormPage />
-          </Route>
-          <Route path="/">
-            <ListingIndexPage />
           </Route>
         </Switch>
     </>

@@ -17,10 +17,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_185939) do
   create_table "listings", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
-    t.bigint "host_id"
+    t.bigint "host_id", null: false
     t.string "address", null: false
-    t.decimal "latitute", null: false
-    t.decimal "longitude", null: false
+    t.float "latitute", null: false
+    t.float "longitude", null: false
     t.integer "price", null: false
     t.integer "num_beds", null: false
     t.boolean "has_wifi", default: false, null: false
