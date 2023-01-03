@@ -12,7 +12,7 @@ import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { ModalContext } from '../../context/Modal';
 
-const Button = ({user, onClick}) => {
+const DropdownButton = ({user, onClick}) => {
   let img;
   if (user) {
     img = <img src={demoU} className='profile-small' alt="nan" />
@@ -21,7 +21,7 @@ const Button = ({user, onClick}) => {
   }
 
   return (
-    <div onClick={onClick}>
+    <div className='dropdown-button' onClick={onClick}>
       <i className="fa-solid fa-bars" />
       {img}
     </div>
@@ -37,14 +37,13 @@ const DropdownCard = ({user}) => {
 
   let ul;
   if (user) {
-    ul = <ul className='profile-ul'>
-      <li>Messages</li>
+    ul = <ul className='dropdown-profile'>
       <li>Trips</li>
-      <li>Account</li>
-      <li><button onClick={logout}>Log Out</button></li>
+      <li>Create Listing</li>
+      <li><div onClick={logout}>Log Out</div></li>
     </ul>
   } else {
-    ul = <ul className='profile-ul' >
+    ul = <ul className='dropdown-profile' >
       <li><LoginFormModal /></li>
       <li><SignupFormModal /></li>
       <li>Demo Login</li>
@@ -52,9 +51,9 @@ const DropdownCard = ({user}) => {
   }
 
   return (
-    <div>
-      {ul}
-    </div>
+    <>
+    {ul}
+    </>
   )
 }
 
@@ -91,14 +90,14 @@ function Navigation() {
         <p className='logo-text'>airbbb</p>
       </NavLink>
       <div className='search'>
-        <div className='search-anywhere'>Anywhere</div>
-        <div className='search-anyweek'>Any week</div>
+        <div className='search-anywhere'><p>Anywhere</p></div>
+        <div className='search-anyweek'><p>Any week</p></div>
         <div className='search-addguest'>Add guests</div>
         <i class="fa-solid fa-magnifying-glass search-mag"></i>
       </div>
       <div className='dropdown' ref={drop}>
-        <Button className='dropdown-button' user={sessionUser} onClick={() => setshowDropdown(showDropdown => !showDropdown)}/>
-        {showDropdown && <DropdownCard className='dropdown-card' user={sessionUser}/>}
+        <DropdownButton user={sessionUser} onClick={() => setshowDropdown(showDropdown => !showDropdown)}/>
+        {showDropdown && <DropdownCard user={sessionUser}/>}
       </div>
     </div>
   );

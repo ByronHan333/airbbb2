@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Montserrat", sans-serif;
 }
 
 
@@ -13,7 +14,7 @@
   align-items: center;
   justify-content: space-between;
   border: 0px;
-  border-bottom: 1px solid #DDDDDD;
+  border-bottom: 1px solid #ddd;
 }
 
 .nav-container > * {
@@ -29,6 +30,12 @@
   letter-spacing: -.7px;
   text-decoration: none;
   color: #dd3333;
+  height: 60px;
+  width: 120px;
+}
+
+.logo-nav > * {
+  margin: 5px;
 }
 
 .logo-img {
@@ -43,9 +50,9 @@
   font-size: 25px;
   display: flex;
   height: 80px;
-  font-family: "Montserrat", sans-serif;
   align-items: center;
   /* font-variation-settings: "wght" 650; */
+  /* /* font-size:26px; */
 }
 
 /* mid search */
@@ -54,16 +61,57 @@
 .search {
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  border: 1px solid #ddd;
+  height: 50px;
+  width: 380px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.2);
+}
+
+.search > * {
+  margin: 5px;
+}
+
+.search > div + div {
+  /* margin-left: 10px; */
+  padding-left: 15px;
+  border-left: 1px solid #bbb;
 }
 
 /* right hand side drop down */
 /* right hand side drop down */
 /* right hand side drop down */
 /* The container <div> - needed to position the dropdown content */
-.dropdown {
+.dropdown-button {
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  border: 1px solid #DDDDDD;
+  border-radius: 30px;
+  width: 100px;
+  height: 50px;
+}
+
+.dropdown-button:hover {
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-button > * {
+  margin: 5px;
+}
+
+.dropdown-profile {
+  display: flex;
+  justify-content: space-around;
   flex-direction: column;
+  background-color: #ffffff;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  position: absolute;
+  border: 1px solid #DDDDDD;
+  border-radius: 10px;
+  height: 100px;
+  width: 150px;
 }
 
 .profile-small {
@@ -71,6 +119,35 @@
   height: 40px;
   border-radius: 50%;
 }
+
+.dropdown-profile > * {
+  margin: 5px;
+  text-align: left;
+  text-decoration: none;
+  display: block;
+  padding: 0px;
+  right:0px;
+  border: 1px #ddd;
+}
+
+.dropdown-profile > li {
+  margin: 5px;
+  text-align: left;
+}
+
+.signupFormModalButton, .loginFormModalButton, .dropdown-profile > * {
+  font-size: 16px;
+}
+
+.dropdown-profile li:hover {
+  background-color: #ddd;
+}
+
+
+
+
+
+
 
 
 
