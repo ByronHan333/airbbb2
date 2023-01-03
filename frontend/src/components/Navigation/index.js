@@ -10,6 +10,7 @@ import demoU from "../../assets/images/demoUser.png"
 import './Navigation.css'
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
+import { ModalContext } from '../../context/Modal';
 
 const Button = ({user, onClick}) => {
   let img;
@@ -29,7 +30,7 @@ const Button = ({user, onClick}) => {
   )
 }
 
-const DropDownCard = ({user}) => {
+const DropdownCard = ({user}) => {
   const dispatch = useDispatch()
   const logout = (e) => {
     e.preventDefault();
@@ -62,19 +63,19 @@ const DropDownCard = ({user}) => {
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
-  const [showDropDown, setShowDropDown] = useState(false)
+  const [showDropdown, setshowDropdown] = useState(false)
   const drop = useRef(null)
-  const value = useContext(value);
+  const value = useContext(ModalContext);
   // console.log(value)
 
 
 
   useEffect(() => {
-    
+    console.log(value?.children.length)
 
     const handleClick = (e) => {
-      if (!e.target.closest(`.${drop.current.className}`) && showDropDown) {
-        setShowDropDown(false)
+      if (!e.target.closest(`.${drop.current.className}`) && showDropdown && !value?.children.length) {
+        setshowDropdown(false)
       }
     }
 
@@ -97,8 +98,8 @@ function Navigation() {
 
     </div>
     <div className='right-dropdown' ref={drop}>
-      <Button user={sessionUser} onClick={() => setShowDropDown(showDropDown => !showDropDown)}/>
-      {showDropDown && <DropDownCard user={sessionUser}/>}
+      <Button user={sessionUser} onClick={() => setshowDropdown(showDropdown => !showDropdown)}/>
+      {showDropdown && <DropdownCard user={sessionUser}/>}
     </div>
     </>
   );
