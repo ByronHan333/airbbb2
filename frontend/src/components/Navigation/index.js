@@ -15,17 +15,15 @@ import { ModalContext } from '../../context/Modal';
 const Button = ({user, onClick}) => {
   let img;
   if (user) {
-    img = <img src={demoU} alt="nan" className='profile-small' width={40} height={40} />
+    img = <img src={demoU} className='profile-small' alt="nan" />
   } else {
-    img = <img src={emptyU} alt="nan" className='profile-small' width={40} height={40} />
+    img = <img src={emptyU} className='profile-small' alt="nan" />
   }
 
   return (
     <div onClick={onClick}>
-    <i className="fa-solid fa-bars" />
-    <button className=''>
+      <i className="fa-solid fa-bars" />
       {img}
-    </button>
     </div>
   )
 }
@@ -54,7 +52,7 @@ const DropdownCard = ({user}) => {
   }
 
   return (
-    <div className='dropDownCard'>
+    <div>
       {ul}
     </div>
   )
@@ -87,21 +85,22 @@ function Navigation() {
   })
 
   return (
-    <>
-    <div className='left-logo'>
-      <NavLink className='logo-text' exact to='/'>
-        <img src={logo} alt="nan" className='logo-img' width={60} height={60} />
-        <p>airbbb</p>
+    <div className='nav-container'>
+      <NavLink className='logo-nav' exact to='/'>
+        <img src={logo} alt="nan" className='logo-img'/>
+        <p className='logo-text'>airbbb</p>
       </NavLink>
+      <div className='search'>
+        <div className='search-anywhere'>Anywhere</div>
+        <div className='search-anyweek'>Any week</div>
+        <div className='search-addguest'>Add guests</div>
+        <i class="fa-solid fa-magnifying-glass search-mag"></i>
+      </div>
+      <div className='dropdown' ref={drop}>
+        <Button className='dropdown-button' user={sessionUser} onClick={() => setshowDropdown(showDropdown => !showDropdown)}/>
+        {showDropdown && <DropdownCard className='dropdown-card' user={sessionUser}/>}
+      </div>
     </div>
-    <div className='developer-info'>
-
-    </div>
-    <div className='right-dropdown' ref={drop}>
-      <Button user={sessionUser} onClick={() => setshowDropdown(showDropdown => !showDropdown)}/>
-      {showDropdown && <DropdownCard user={sessionUser}/>}
-    </div>
-    </>
   );
 }
 
