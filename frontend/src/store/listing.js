@@ -11,16 +11,15 @@ export const receiveListings = (listings) => {
 
 const initialState = {};
 
-export const getListings = () => async dispatch => {
+export const fetchListings = () => async dispatch => {
   const response = await csrfFetch("/api/listings");
   if (response.ok) {
-    const listings = await response.json();
-    dispatch(receiveListings(listings.listings));
+    const data = await response.json();
+    dispatch(receiveListings(data.listings));
   } else {
     console.log('getListings error')
   }
 };
-
 
 const listingReducer = (state = initialState, action) => {
   switch (action.type) {

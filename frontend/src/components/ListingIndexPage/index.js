@@ -7,12 +7,12 @@ function ListingIndexPage() {
   const listings = useSelector(state => state.listings)
 
   useEffect(() => {
-    dispatch(listingsActions.getListings())
+    dispatch(listingsActions.fetchListings())
   },[dispatch])
+
 
   return (
     <>
-    <h1>ListingIndexPage</h1>
     <ul>
       {Object.values(listings)?.map(item => {
         return <li key={item.id}> {item.title}, {item.description}, {item.price} </li>
