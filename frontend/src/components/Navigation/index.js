@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
@@ -64,15 +64,22 @@ function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
   const [showDropDown, setShowDropDown] = useState(false)
   const drop = useRef(null)
+  const value = useContext(value);
+  // console.log(value)
 
-  const handleClick = (e) => {
-    if (!e.target.closest(`.${drop.current.className}`) && showDropDown) {
-      setShowDropDown(false)
-    }
-  }
+
 
   useEffect(() => {
+    
+
+    const handleClick = (e) => {
+      if (!e.target.closest(`.${drop.current.className}`) && showDropDown) {
+        setShowDropDown(false)
+      }
+    }
+
     document.addEventListener('click', handleClick);
+
     return () => {
       document.removeEventListener('click', handleClick)
     }
@@ -81,9 +88,9 @@ function Navigation() {
   return (
     <>
     <div className='left-logo'>
-      <NavLink exact to='/'>
+      <NavLink className='logo-text' exact to='/'>
         <img src={logo} alt="nan" className='logo-img' width={60} height={60} />
-        <p className='logo-text'>airbbb</p>
+        <p>airbbb</p>
       </NavLink>
     </div>
     <div className='developer-info'>

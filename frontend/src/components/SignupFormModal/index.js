@@ -5,16 +5,18 @@ import SignupForm from './SignupForm';
 function SignupFormModal() {
   const [showModal, setShowModal] = useState(false);
 
-  // const handleClick = (e) => {
-  //   e.stopPropagation()
-  //   setShowModal(showModal => !showModal)
-  // }
+  const handleClick = (e) => {
+    console.log("in close")
+    e.stopPropagation()
+    setShowModal(false)
+  }
 
   return (
     <>
       <button onClick={() => setShowModal(true)}>Sign Up</button>
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        // <Modal onClose={() => setShowModal(false)}>
+        <Modal onClose={handleClick}>
           <SignupForm />
         </Modal>
       )}
