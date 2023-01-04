@@ -9,7 +9,7 @@ import * as sessionActions from '../../store/session';
 import { ModalContext } from '../../context/Modal';
 import DropdownButton from './DropdownButton'
 import DropdownCard from './DropdownCard'
-
+import Filter from './Filter'
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);

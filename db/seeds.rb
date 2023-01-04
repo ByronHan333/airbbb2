@@ -26,8 +26,8 @@ ApplicationRecord.transaction do
   puts "Creating listings..."
   # Create one user with an easy to remember username, email, and password:
   Listing.create!(
-    title: 'house title 1',
-    description: 'description',
+    title: 'San Francisco, Califoria',
+    description: 'description 1',
     host_id: 1,
     address: 'address',
     latitute: 37.773972,
@@ -39,8 +39,47 @@ ApplicationRecord.transaction do
   )
 
   Listing.create!(
-    title: 'house title 2',
+    title: 'Sonoma, California',
     description: 'description 2',
+    host_id: 1,
+    address: 'address 2',
+    latitute: 37.773972,
+    longitude: -122.431297,
+    price: 2000,
+    num_beds: 6,
+    has_wifi: true,
+    has_ac: true
+  )
+
+  Listing.create!(
+    title: 'San Martin, California',
+    description: 'description 3',
+    host_id: 1,
+    address: 'address 2',
+    latitute: 37.773972,
+    longitude: -122.431297,
+    price: 2000,
+    num_beds: 6,
+    has_wifi: true,
+    has_ac: true
+  )
+
+  Listing.create!(
+    title: 'Petaluma, California',
+    description: 'description 4',
+    host_id: 1,
+    address: 'address 2',
+    latitute: 37.773972,
+    longitude: -122.431297,
+    price: 2000,
+    num_beds: 6,
+    has_wifi: true,
+    has_ac: true
+  )
+
+  Listing.create!(
+    title: 'Orinda, California',
+    description: 'description 5',
     host_id: 1,
     address: 'address 2',
     latitute: 37.773972,
