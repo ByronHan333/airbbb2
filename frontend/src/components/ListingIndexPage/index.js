@@ -1,6 +1,8 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import * as listingsActions from '../../store/listing'
+import defaultHome from "../../assets/images/defaultHome.png"
+import './ListingIndexPage.css'
 
 function ListingIndexPage() {
   const dispatch = useDispatch()
@@ -10,15 +12,28 @@ function ListingIndexPage() {
     dispatch(listingsActions.fetchListings())
   },[dispatch])
 
+  let homeList;
+
+  homeList = Object.values(listings).map(home => {
+    return <li key={home.id} className="home-card">
+      <ul className="home-card-ul">
+        <li><img src={defaultHome} className="home-profile-pic" alt="nan"/></li>
+        <li><p>{home.title}</p></li>
+        <li><p>{home.description}</p></li>
+        <li><p>${home.price} night</p></li>
+      </ul>
+    </li>
+  })
+
+
+  {console.log(homeList)}
 
   return (
-    <>
-    <ul>
-      {Object.values(listings)?.map(item => {
-        return <li key={item.id}> {item.title}, {item.description}, {item.price} </li>
-      })}
-    </ul>
-    </>
+    <div className="index">
+      <ul className="index-ul">
+        {homeList}
+      </ul>
+    </div>
   )
 }
 

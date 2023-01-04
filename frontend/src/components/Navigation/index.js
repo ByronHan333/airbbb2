@@ -18,12 +18,7 @@ function Navigation() {
   const value = useContext(ModalContext);
 
   useEffect(() => {
-    // console.log(value?.children.length)
-    // console.log(drop)
-    // console.log(drop.current)
-    // console.log(drop.current.className)
     const handleClick = (e) => {
-      // console.log(!e.target.closest('.dropdown'))
       if (!e.target.closest(`.${drop.current.className}`) && showDropdown && !value?.children.length) {
         setshowDropdown(false)
       }

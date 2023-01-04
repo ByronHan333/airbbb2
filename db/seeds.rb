@@ -27,7 +27,7 @@ ApplicationRecord.transaction do
   # Create one user with an easy to remember username, email, and password:
   Listing.create!(
     title: 'San Francisco, Califoria',
-    description: 'description 1',
+    description: 'top destination',
     host_id: 1,
     address: 'address',
     latitute: 37.773972,

@@ -13,9 +13,6 @@ function App() {
         <Route exact path="/">
           <ListingIndexPage />
         </Route>
-        <Route path="/signup">
-          <SignupFormPage />
-        </Route>
         <Route path="*">
           <Redirect to="/" />
         </Route>
