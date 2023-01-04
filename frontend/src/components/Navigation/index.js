@@ -33,7 +33,7 @@ function Navigation() {
 
   return (
     <div className='nav-container'>
-      <NavLink className='logo-nav' exact to='/'>
+      <NavLink className='logo-nav clickable' exact to='/'>
         <img src={logo} alt="nan" className='logo-img'/>
         <p className='logo-text'>airbbb</p>
       </NavLink>

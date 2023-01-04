@@ -1,6 +1,6 @@
 import csrfFetch from './csrf';
 
-const RECEIVE_LISTINGS = 'listing/createListing'
+const RECEIVE_LISTINGS = 'listing/receiveListing'
 
 export const receiveListings = (listings) => {
   return {

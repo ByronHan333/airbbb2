@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
@@ -15,15 +16,15 @@ const DropdownCard = ({user}) => {
   let ul;
   if (user) {
     ul = <ul className='dropdown-profile'>
-      <li>Trips</li>
-      <li>Create Listing</li>
-      <li><div onClick={logout}>Log Out</div></li>
+      <li><NavLink className="clickable" style={{ textDecoration: 'none', color: 'black' }} to="/trips">Trips</NavLink></li>
+      <li><NavLink className="clickable" style={{ textDecoration: 'none', color: 'black' }} to="/listings">Listings</NavLink></li>
+      <li><div className="clickable" onClick={logout}>Log Out</div></li>
     </ul>
   } else {
     ul = <ul className='dropdown-profile' >
       <li><LoginFormModal /></li>
       <li><SignupFormModal /></li>
-      <li>Demo Login</li>
+      <li className="clickable">Demo Login</li>
     </ul>
   }
 

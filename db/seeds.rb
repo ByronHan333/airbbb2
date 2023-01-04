@@ -25,6 +25,12 @@ ApplicationRecord.transaction do
     password: 'password'
   )
 
+  User.create!(
+    username: 'super-rich-guy',
+    email: 'username2@username.com',
+    password: 'password'
+  )
+
   puts "Creating listings..."
   # Create one user with an easy to remember username, email, and password:
   Listing.create!(
@@ -82,7 +88,7 @@ ApplicationRecord.transaction do
   Listing.create!(
     title: 'Orinda, California',
     description: 'description 5',
-    host_id: 1,
+    host_id: 2,
     address: 'address 2',
     latitute: 37.773972,
     longitude: -122.431297,
@@ -95,7 +101,7 @@ ApplicationRecord.transaction do
   Listing.create!(
     title: 'San Mateo, California',
     description: 'description 6',
-    host_id: 1,
+    host_id: 2,
     address: 'address 2',
     latitute: 37.773972,
     longitude: -122.431297,

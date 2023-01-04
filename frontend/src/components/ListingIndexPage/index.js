@@ -25,9 +25,6 @@ function ListingIndexPage() {
     </li>
   })
 
-
-  {console.log(homeList)}
-
   return (
     <div className="index">
       <ul className="index-ul">

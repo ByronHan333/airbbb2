@@ -4,6 +4,10 @@
   font-family: "Montserrat", sans-serif;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 
 /* nav container */
 .nav-container {
@@ -99,6 +103,7 @@
 
 .dropdown-button > * {
   margin: 5px;
+  cursor: pointer;
 }
 
 .dropdown-profile {

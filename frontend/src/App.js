@@ -4,7 +4,9 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import ListingIndexPage from "./components/ListingIndexPage"
-import CreateListing from "./components/CreateListing"
+// import CreateListing from "./components/CreateListing"
+import OwnedListing from "./components/OwnedListing"
+
 function App() {
   return (
     <>
@@ -13,8 +15,8 @@ function App() {
         <Route exact path="/">
           <ListingIndexPage />
         </Route>
-        <Route exact path="/new/listing">
-          <CreateListing />
+        <Route exact path="/listings">
+          <OwnedListing />
         </Route>
         <Route path="*">
           <Redirect to="/" />
