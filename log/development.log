@@ -33210,3 +33210,52 @@ Processing by Api::ListingsController#index as JSON
 Completed 200 OK in 42ms (Views: 23.2ms | ActiveRecord: 4.4ms | Allocations: 12927)
 
 
+Started GET "/api/session" for 127.0.0.1 at 2023-01-04 13:36:43 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 2.1ms | Allocations: 6050)
+
+
+Started GET "/api/listings" for 127.0.0.1 at 2023-01-04 13:36:43 -0800
+Processing by Api::ListingsController#index as JSON
+  Rendering api/listings/index.json.jbuilder
+  [1m[36mListing Load (0.9ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/api/listings/index.json.jbuilder:2
+  Rendered api/listings/index.json.jbuilder (Duration: 23.4ms | Allocations: 9595)
+Completed 200 OK in 39ms (Views: 26.2ms | ActiveRecord: 6.8ms | Allocations: 12926)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-01-04 13:37:30 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 877)
+
+
+Started GET "/api/listings" for 127.0.0.1 at 2023-01-04 13:37:30 -0800
+Processing by Api::ListingsController#index as JSON
+  Rendering api/listings/index.json.jbuilder
+  [1m[36mListing Load (10.5ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/api/listings/index.json.jbuilder:2
+  Rendered api/listings/index.json.jbuilder (Duration: 13.2ms | Allocations: 1429)
+Completed 200 OK in 15ms (Views: 3.6ms | ActiveRecord: 10.5ms | Allocations: 1689)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2023-01-04 13:37:38 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 752)
+
+
+Started GET "/api/listings" for 127.0.0.1 at 2023-01-04 13:37:38 -0800
+Processing by Api::ListingsController#index as JSON
+  Rendering api/listings/index.json.jbuilder
+  [1m[36mListing Load (0.3ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/api/listings/index.json.jbuilder:2
+  Rendered api/listings/index.json.jbuilder (Duration: 2.5ms | Allocations: 1410)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms | Allocations: 1642)
+
+

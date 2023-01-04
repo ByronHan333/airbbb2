@@ -6,7 +6,6 @@ function SignupFormModal() {
   const [showModal, setShowModal] = useState(false);
 
   const handleClick = (e) => {
-    console.log("in close")
     e.stopPropagation()
     setShowModal(false)
   }

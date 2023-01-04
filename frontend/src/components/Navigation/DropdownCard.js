@@ -12,7 +12,6 @@ const DropdownCard = ({user}) => {
     dispatch(sessionActions.logout());
   };
 
-  console.log(user)
   let ul;
   if (user) {
     ul = <ul className='dropdown-profile'>
