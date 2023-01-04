@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require "open-uri"
+
 ApplicationRecord.transaction do
   puts "Destroying tables..."
   # Unnecessary if using `rails db:seed:replant`
@@ -80,6 +82,19 @@ ApplicationRecord.transaction do
   Listing.create!(
     title: 'Orinda, California',
     description: 'description 5',
+    host_id: 1,
+    address: 'address 2',
+    latitute: 37.773972,
+    longitude: -122.431297,
+    price: 2000,
+    num_beds: 6,
+    has_wifi: true,
+    has_ac: true
+  )
+
+  Listing.create!(
+    title: 'San Mateo, California',
+    description: 'description 6',
     host_id: 1,
     address: 'address 2',
     latitute: 37.773972,
