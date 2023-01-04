@@ -33259,3 +33259,20 @@ Processing by Api::ListingsController#index as JSON
 Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms | Allocations: 1642)
 
 
+Started GET "/api/session" for 127.0.0.1 at 2023-01-04 13:41:11 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 24ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 6049)
+
+
+Started GET "/api/listings" for 127.0.0.1 at 2023-01-04 13:41:11 -0800
+Processing by Api::ListingsController#index as JSON
+  Rendering api/listings/index.json.jbuilder
+  [1m[36mListing Load (0.9ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/api/listings/index.json.jbuilder:2
+  Rendered api/listings/index.json.jbuilder (Duration: 19.3ms | Allocations: 9585)
+Completed 200 OK in 35ms (Views: 23.8ms | ActiveRecord: 4.4ms | Allocations: 12905)
+
+
