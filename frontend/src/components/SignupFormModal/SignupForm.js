@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 
-function SignupFormPage() {
+function SignupForm() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [email, setEmail] = useState("");
@@ -20,17 +20,17 @@ function SignupFormPage() {
       setErrors([]);
       return dispatch(sessionActions.signup({ email, username, password }))
         .catch(async (res) => {
-          let data;
-          try {
-            // .clone() essentially allows you to read the response body twice
-            data = await res.clone().json();
-          } catch {
-            data = await res.text(); // Will hit this case if the server is down
-          }
-          if (data?.errors) setErrors(data.errors);
-          else if (data) setErrors([data]);
-          else setErrors([res.statusText]);
-        });
+        let data;
+        try {
+          // .clone() essentially allows you to read the response body twice
+          data = await res.clone().json();
+        } catch {
+          data = await res.text(); // Will hit this case if the server is down
+        }
+        if (data?.errors) setErrors(data.errors);
+        else if (data) setErrors([data]);
+        else setErrors([res.statusText]);
+      });
     }
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
@@ -81,4 +81,4 @@ function SignupFormPage() {
   );
 }
 
-export default SignupFormPage;
+export default SignupForm;
