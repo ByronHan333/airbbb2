@@ -12,9 +12,8 @@ function ListingIndexPage() {
     dispatch(listingsActions.fetchListings())
   },[dispatch])
 
-  let homeList;
 
-  homeList = Object.values(listings).map(home => {
+  let homeList = Object.values(listings).map(home => {
     return <li key={home.id} className="home-card">
       <ul className="home-card-ul">
         <li><img src={defaultHome} className="home-profile-pic" alt="nan"/></li>

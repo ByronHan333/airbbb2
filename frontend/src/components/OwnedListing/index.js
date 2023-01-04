@@ -1,28 +1,25 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
+import { Redirect } from "react-router-dom";
 import * as listingsActions from '../../store/listing'
 import defaultHome from "../../assets/images/defaultHome.png"
 
 const OwnedListing = () => {
   const sessionUser = useSelector(state => state.session.user);
   const listings = useSelector(state => state.listings);
-  const [ownedListings, setOwnedListings] = useState();
   const dispatch = useDispatch();
 
-  // let ownedListings;
-
   useEffect(() => {
-    if (sessionUser) {
-      dispatch(listingsActions.fetchListings())
-      setOwnedListings(Object.values(listings).filter(l => l.hostId==sessionUser.id))
-      console.log(ownedListings)
-    }
-  },[])
+    dispatch(listingsActions.fetchListings())
+  },[dispatch])
 
-  let homeList;
-  console.log(ownedListings)
+  if (!sessionUser) {
+    return <Redirect to="/" />
+  }
 
-  homeList = ownedListings?.map(home => {
+  let ownedListings = Object.values(listings).filter(l => l.hostId==sessionUser.id);
+
+  let homeList = ownedListings?.map(home => {
     return <li key={home.id} className="home-card">
       <ul className="home-card-ul">
         <li><img src={defaultHome} className="home-profile-pic" alt="nan"/></li>
@@ -33,12 +30,8 @@ const OwnedListing = () => {
     </li>
   })
 
-  console.log(homeList)
-
-
   return (
     <div className="index">
-      <h1>Hello from OwnedListing</h1>
       <ul className="index-ul">
         {homeList}
       </ul>
