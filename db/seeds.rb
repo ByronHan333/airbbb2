@@ -19,13 +19,13 @@ ApplicationRecord.transaction do
 
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:
-  User.create!(
+  user1 = User.create!(
     username: 'username',
     email: 'username@username.com',
     password: 'password'
   )
 
-  User.create!(
+  user2 = User.create!(
     username: 'super-rich-guy',
     email: 'username2@username.com',
     password: 'password'
@@ -33,7 +33,7 @@ ApplicationRecord.transaction do
 
   puts "Creating listings..."
   # Create one user with an easy to remember username, email, and password:
-  Listing.create!(
+  listing1 = Listing.create!(
     title: 'San Francisco, Califoria',
     description: 'top destination',
     host_id: 1,
@@ -46,7 +46,12 @@ ApplicationRecord.transaction do
     has_ac: true
   )
 
-  Listing.create!(
+  listing1.photos.attach([
+    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic2.png"), filename: "pic2.png"},
+    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic1.png"), filename: "pic1.png"}
+  ])
+
+  listing2 = Listing.create!(
     title: 'Sonoma, California',
     description: 'description 2',
     host_id: 1,
@@ -59,7 +64,12 @@ ApplicationRecord.transaction do
     has_ac: true
   )
 
-  Listing.create!(
+  listing2.photos.attach([
+    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic2.png"), filename: "pic2.png"},
+    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic1.png"), filename: "pic1.png"}
+  ])
+
+  listing3 = Listing.create!(
     title: 'San Martin, California',
     description: 'description 3',
     host_id: 1,
@@ -72,7 +82,12 @@ ApplicationRecord.transaction do
     has_ac: true
   )
 
-  Listing.create!(
+  listing3.photos.attach([
+    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic2.png"), filename: "pic2.png"},
+    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic1.png"), filename: "pic1.png"}
+  ])
+
+  listing4 = Listing.create!(
     title: 'Petaluma, California',
     description: 'description 4',
     host_id: 1,
@@ -85,7 +100,12 @@ ApplicationRecord.transaction do
     has_ac: true
   )
 
-  Listing.create!(
+  listing4.photos.attach([
+    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic2.png"), filename: "pic2.png"},
+    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic1.png"), filename: "pic1.png"}
+  ])
+
+  listing5 = Listing.create!(
     title: 'Orinda, California',
     description: 'description 5',
     host_id: 2,
@@ -98,7 +118,12 @@ ApplicationRecord.transaction do
     has_ac: true
   )
 
-  Listing.create!(
+  listing5.photos.attach([
+    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic2.png"), filename: "pic2.png"},
+    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic1.png"), filename: "pic1.png"}
+  ])
+
+  listing6 = Listing.create!(
     title: 'San Mateo, California',
     description: 'description 6',
     host_id: 2,
@@ -110,6 +135,11 @@ ApplicationRecord.transaction do
     has_wifi: true,
     has_ac: true
   )
+
+  listing6.photos.attach([
+    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic2.png"), filename: "pic2.png"},
+    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic1.png"), filename: "pic1.png"}
+  ])
 
   # More users
   10.times do

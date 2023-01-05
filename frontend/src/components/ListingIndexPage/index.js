@@ -14,8 +14,10 @@ function ListingIndexPage() {
 
 
   let homeList = Object.values(listings).map(home => {
+    console.log(home)
     return <li key={home.id} className="home-card">
       <ul className="home-card-ul">
+        {/* <li><img src={home.photoUrls[0]} className="home-profile-pic" alt="nan"/></li> */}
         <li><img src={defaultHome} className="home-profile-pic" alt="nan"/></li>
         <li><p>{home.title}</p></li>
         <li><p>{home.description}</p></li>
