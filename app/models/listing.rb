@@ -23,4 +23,6 @@ class Listing < ApplicationRecord
   class_name: :User,
   foreign_key: :host_id,
   inverse_of: :listings
+
+  has_many_attached :photos
 end
