@@ -171,6 +171,7 @@ Start my code
   height: 200px;
   width: 250px;
   right: 2%;
+  z-index: 2;
 }
 
 .profile-small {
