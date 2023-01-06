@@ -1,10 +1,11 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import * as listingsActions from '../../store/listing'
-import defaultHome from "../../assets/images/defaultHome.png"
+import SingleListingGrid from '../SingleListingGrid'
+import Map from '../Map'
 import './ListingIndexPage.css'
 
-function ListingIndexPage() {
+export default function ListingIndexPage() {
   const dispatch = useDispatch()
   const listings = useSelector(state => state.listings)
 
@@ -12,26 +13,23 @@ function ListingIndexPage() {
     dispatch(listingsActions.fetchListings())
   },[dispatch])
 
-
-  let homeList = Object.values(listings).map(home => {
-    return <li key={home.id} className="home-card">
-      <ul className="home-card-ul">
-        {/* <li><img src={home.photoUrls[0]} className="home-profile-pic" alt="nan"/></li> */}
-        <li><img src={defaultHome} className="home-profile-pic" alt="nan"/></li>
-        <li><p>{home.title}</p></li>
-        <li><p>{home.description}</p></li>
-        <li><p>${home.price} night</p></li>
-      </ul>
-    </li>
-  })
-
   return (
     <div className="index">
-      <ul className="index-ul">
-        {homeList}
-      </ul>
+      <div className="index-listings">
+        <ul className="index-ul">
+        {Object.values(listings).map(home => {
+          return (
+          <li key={home.id} className="home-card">
+            <SingleListingGrid home={home}/>
+          </li>
+          )
+        })}
+        </ul>
+      </div>
+      <div className="index-map">
+        {/* <h1>Map</h1> */}
+        <Map />
+      </div>
     </div>
   )
 }
-
-export default ListingIndexPage;

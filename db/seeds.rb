@@ -33,121 +33,44 @@ ApplicationRecord.transaction do
 
   puts "Creating listings..."
   # Create one user with an easy to remember username, email, and password:
-  listing1 = Listing.create!(
-    title: 'San Francisco, Califoria',
-    description: 'top destination',
-    host_id: 1,
-    address: 'address',
-    latitute: 37.773972,
-    longitude: -122.431297,
-    price: 100,
-    num_beds: 4,
-    has_wifi: true,
-    has_ac: true
-  )
+  addresses = [
+    'San Francisco, California',
+    'Sausalito, California',
+    'San Mateo, California',
+    'Millbrae, California',
+    'Burlingame, California',
+    'Brisbane, California',
+    'Daly City, California',
+    'Pacifica, California'
+  ]
 
-  listing1.photos.attach([
-    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic2.png"), filename: "pic2.png"},
-    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic1.png"), filename: "pic1.png"}
-  ])
-
-  listing2 = Listing.create!(
-    title: 'Sonoma, California',
-    description: 'description 2',
-    host_id: 1,
-    address: 'address 2',
-    latitute: 37.888036,
-    longitude: -122.462502,
-    price: 200,
-    num_beds: 6,
-    has_wifi: true,
-    has_ac: true
-  )
-
-  listing2.photos.attach([
-    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic2.png"), filename: "pic2.png"},
-    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic1.png"), filename: "pic1.png"}
-  ])
-
-  listing3 = Listing.create!(
-    title: 'San Martin, California',
-    description: 'description 3',
-    host_id: 1,
-    address: 'address 2',
-    latitute: 37.755798,
-    longitude: -122.508037,
-    price: 300,
-    num_beds: 6,
-    has_wifi: true,
-    has_ac: true
-  )
-
-  listing3.photos.attach([
-    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic2.png"), filename: "pic2.png"},
-    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic1.png"), filename: "pic1.png"}
-  ])
-
-  listing4 = Listing.create!(
-    title: 'Petaluma, California',
-    description: 'description 4',
-    host_id: 1,
-    address: 'address 2',
-    latitute: 37.794965,
-    longitude: -122.244873,
-    price: 400,
-    num_beds: 6,
-    has_wifi: true,
-    has_ac: true
-  )
-
-  listing4.photos.attach([
-    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic2.png"), filename: "pic2.png"},
-    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic1.png"), filename: "pic1.png"}
-  ])
-
-  listing5 = Listing.create!(
-    title: 'Orinda, California',
-    description: 'description 5',
-    host_id: 2,
-    address: 'address 2',
-    latitute: 37.676954,
-    longitude: -122.394723,
-    price: 500,
-    num_beds: 6,
-    has_wifi: true,
-    has_ac: true
-  )
-
-  listing5.photos.attach([
-    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic2.png"), filename: "pic2.png"},
-    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic1.png"), filename: "pic1.png"}
-  ])
-
-  listing6 = Listing.create!(
-    title: 'San Mateo, California',
-    description: 'description 6',
-    host_id: 2,
-    address: 'address 2',
-    latitute: 37.776188,
-    longitude: -122.443993,
-    price: 600,
-    num_beds: 6,
-    has_wifi: true,
-    has_ac: true
-  )
-
-  listing6.photos.attach([
-    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic2.png"), filename: "pic2.png"},
-    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic1.png"), filename: "pic1.png"}
-  ])
+  users = [1, 2]
 
   # More users
-  10.times do
+  10.times do |i|
     User.create!({
       username: Faker::Internet.unique.username(specifier: 3),
       email: Faker::Internet.unique.email,
       password: 'password'
     })
+
+    listing = Listing.create!(
+      title: Faker::Company.unique.bs.chars.take(25).join(''),
+      description: 'description test',
+      host_id: users.sample,
+      address: addresses.sample,
+      latitute: 37+rand(66..90)/100.0, #0.66 - 0.90
+      longitude: -122-rand(24..44)/100.0, #0.24 - 0.44
+      price: rand(100...999),
+      num_beds: rand(2...8),
+      has_wifi: true,
+      has_ac: true
+    )
+
+    listing.photos.attach([
+      {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic2.png"), filename: "pic2.png"},
+      {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic1.png"), filename: "pic1.png"}
+    ])
   end
 
   puts "Done!"
