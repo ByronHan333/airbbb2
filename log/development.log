@@ -39179,3 +39179,68 @@ Processing by Api::ListingsController#index as JSON
 Completed 200 OK in 76ms (Views: 58.1ms | ActiveRecord: 17.7ms | Allocations: 31206)
 
 
+Started GET "/api/session" for 127.0.0.1 at 2023-01-05 16:05:08 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (17.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:28:in `current_user'
+Completed 200 OK in 31ms (Views: 0.2ms | ActiveRecord: 18.3ms | Allocations: 6096)
+
+
+Started GET "/api/listings" for 127.0.0.1 at 2023-01-05 16:05:08 -0800
+Processing by Api::ListingsController#index as JSON
+  Rendering api/listings/index.json.jbuilder
+  [1m[36mListing Load (1.1ms)[0m  [1m[34mSELECT "listings".* FROM "listings"[0m
+  ↳ app/views/api/listings/index.json.jbuilder:2
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "Listing"], ["name", "photos"]]
+  ↳ app/views/api/listings/index.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/api/listings/index.json.jbuilder:5
+[36m  S3 Storage (1239.4ms) [0m[34mGenerated URL for file at key: u9dgj5ekjw8eyyizujn2582ldiq3 (https://airbbb-dev.s3.us-west-1.amazonaws.com/u9dgj5ekjw8eyyizujn2582ldiq3?response-content-disposition=attachment%3B%20filename%3D%22pic2.png%22%3B%20filename%2A%3DUTF-8%27%27pic2.png&response-content-type=image%2Fwebp&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXYIXDOLZUICRKRG2%2F20230106%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230106T000510Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=a83885b1b5a20873623eda0130e6ab024060eaf002250e00bf7da559560dd559)[0m
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/api/listings/index.json.jbuilder:5
+[36m  S3 Storage (1.6ms) [0m[34mGenerated URL for file at key: 62re3a9yu2b8fsvgrneq9jy3xkow (https://airbbb-dev.s3.us-west-1.amazonaws.com/62re3a9yu2b8fsvgrneq9jy3xkow?response-content-disposition=inline%3B%20filename%3D%22pic1.png%22%3B%20filename%2A%3DUTF-8%27%27pic1.png&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXYIXDOLZUICRKRG2%2F20230106%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230106T000510Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=6efbcea2c68ba0ce91d2338479416eff794442beff73f405be213ce11640aee8)[0m
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 2], ["record_type", "Listing"], ["name", "photos"]]
+  ↳ app/views/api/listings/index.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/api/listings/index.json.jbuilder:5
+[36m  S3 Storage (1.5ms) [0m[34mGenerated URL for file at key: 75yuj7wbdf12vb0qh2w0vteq51z4 (https://airbbb-dev.s3.us-west-1.amazonaws.com/75yuj7wbdf12vb0qh2w0vteq51z4?response-content-disposition=attachment%3B%20filename%3D%22pic2.png%22%3B%20filename%2A%3DUTF-8%27%27pic2.png&response-content-type=image%2Fwebp&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXYIXDOLZUICRKRG2%2F20230106%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230106T000510Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=42436d2e54c20d15f50e9a4db7aec122e1d704777218b40087a345c3a516dbdb)[0m
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/api/listings/index.json.jbuilder:5
+[36m  S3 Storage (1.3ms) [0m[34mGenerated URL for file at key: 06wlwpqiifvrnrz3058qatqr4y7r (https://airbbb-dev.s3.us-west-1.amazonaws.com/06wlwpqiifvrnrz3058qatqr4y7r?response-content-disposition=inline%3B%20filename%3D%22pic1.png%22%3B%20filename%2A%3DUTF-8%27%27pic1.png&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXYIXDOLZUICRKRG2%2F20230106%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230106T000510Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=41d8b8e7eefe70f671e0a59b382ed7a6336d295a80601c17d3f7e3022b5b3e46)[0m
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 3], ["record_type", "Listing"], ["name", "photos"]]
+  ↳ app/views/api/listings/index.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/api/listings/index.json.jbuilder:5
+[36m  S3 Storage (1.3ms) [0m[34mGenerated URL for file at key: m8ssjt1arub7h47dxhkgrz13d8tt (https://airbbb-dev.s3.us-west-1.amazonaws.com/m8ssjt1arub7h47dxhkgrz13d8tt?response-content-disposition=attachment%3B%20filename%3D%22pic2.png%22%3B%20filename%2A%3DUTF-8%27%27pic2.png&response-content-type=image%2Fwebp&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXYIXDOLZUICRKRG2%2F20230106%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230106T000510Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=0428f4f7e3c4da1c86340c4a32e29cbfea0885ad31d2e6994feca541c17cd07d)[0m
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/api/listings/index.json.jbuilder:5
+[36m  S3 Storage (1.3ms) [0m[34mGenerated URL for file at key: 5qvf56s9cb2cy86jmrt6yieyhx1r (https://airbbb-dev.s3.us-west-1.amazonaws.com/5qvf56s9cb2cy86jmrt6yieyhx1r?response-content-disposition=inline%3B%20filename%3D%22pic1.png%22%3B%20filename%2A%3DUTF-8%27%27pic1.png&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXYIXDOLZUICRKRG2%2F20230106%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230106T000510Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=d92faba70ff29e0b2de5e1dd5e49a3100bb7923318fca070100f5605d59d8022)[0m
+  [1m[36mActiveStorage::Attachment Load (15.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 4], ["record_type", "Listing"], ["name", "photos"]]
+  ↳ app/views/api/listings/index.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/api/listings/index.json.jbuilder:5
+[36m  S3 Storage (1.7ms) [0m[34mGenerated URL for file at key: oexw27z1hq2cn80ao3yx3977bdzi (https://airbbb-dev.s3.us-west-1.amazonaws.com/oexw27z1hq2cn80ao3yx3977bdzi?response-content-disposition=attachment%3B%20filename%3D%22pic2.png%22%3B%20filename%2A%3DUTF-8%27%27pic2.png&response-content-type=image%2Fwebp&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXYIXDOLZUICRKRG2%2F20230106%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230106T000510Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=bbbaa2565a813f4665adc95bdb3dc5c5551b5864c7f0ab75a45ce60695e2f1eb)[0m
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/api/listings/index.json.jbuilder:5
+[36m  S3 Storage (1.6ms) [0m[34mGenerated URL for file at key: 9i3njf114ksaqb88lzeskplmlkjv (https://airbbb-dev.s3.us-west-1.amazonaws.com/9i3njf114ksaqb88lzeskplmlkjv?response-content-disposition=inline%3B%20filename%3D%22pic1.png%22%3B%20filename%2A%3DUTF-8%27%27pic1.png&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXYIXDOLZUICRKRG2%2F20230106%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230106T000510Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=a53c1bb7bcbc4b70e254fb2b7e687ebde8766d5d3de7898ae8a14ac95e446aa2)[0m
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 5], ["record_type", "Listing"], ["name", "photos"]]
+  ↳ app/views/api/listings/index.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/api/listings/index.json.jbuilder:5
+[36m  S3 Storage (1.6ms) [0m[34mGenerated URL for file at key: fqm9eft42e9bmetyrixj5wjv7amm (https://airbbb-dev.s3.us-west-1.amazonaws.com/fqm9eft42e9bmetyrixj5wjv7amm?response-content-disposition=attachment%3B%20filename%3D%22pic2.png%22%3B%20filename%2A%3DUTF-8%27%27pic2.png&response-content-type=image%2Fwebp&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXYIXDOLZUICRKRG2%2F20230106%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230106T000510Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=e3b1f40d00a2d069a4bbb74d1b834ddb468e29fc45d7d4846749adc730ea2e66)[0m
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/api/listings/index.json.jbuilder:5
+[36m  S3 Storage (1.5ms) [0m[34mGenerated URL for file at key: 3o2qne238cwzfw45mvrcl7y3gzts (https://airbbb-dev.s3.us-west-1.amazonaws.com/3o2qne238cwzfw45mvrcl7y3gzts?response-content-disposition=inline%3B%20filename%3D%22pic1.png%22%3B%20filename%2A%3DUTF-8%27%27pic1.png&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXYIXDOLZUICRKRG2%2F20230106%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230106T000510Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=5ceb2d1ed3ae2d64c0c6a0f18e2e898d16f3b01cb45b943c892f0ce89177fdf8)[0m
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 6], ["record_type", "Listing"], ["name", "photos"]]
+  ↳ app/views/api/listings/index.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/api/listings/index.json.jbuilder:5
+[36m  S3 Storage (1.9ms) [0m[34mGenerated URL for file at key: mezyompzldi3f39h5bifw7qmjolv (https://airbbb-dev.s3.us-west-1.amazonaws.com/mezyompzldi3f39h5bifw7qmjolv?response-content-disposition=attachment%3B%20filename%3D%22pic2.png%22%3B%20filename%2A%3DUTF-8%27%27pic2.png&response-content-type=image%2Fwebp&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXYIXDOLZUICRKRG2%2F20230106%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230106T000510Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=83ea6934a5d18a31ba1251264e0b19ae5c6538dbe73797557ab98eb2eaccd566)[0m
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/api/listings/index.json.jbuilder:5
+[36m  S3 Storage (1.8ms) [0m[34mGenerated URL for file at key: qhwjux3u5dajzmsb3eoh4qy4i9rr (https://airbbb-dev.s3.us-west-1.amazonaws.com/qhwjux3u5dajzmsb3eoh4qy4i9rr?response-content-disposition=inline%3B%20filename%3D%22pic1.png%22%3B%20filename%2A%3DUTF-8%27%27pic1.png&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAXYIXDOLZUICRKRG2%2F20230106%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230106T000510Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=3a5c3469b5eff17b15ddaf5cf185efe56303d5248f3441451085d36ac6682862)[0m
+  Rendered api/listings/index.json.jbuilder (Duration: 1467.9ms | Allocations: 1135267)
+Completed 200 OK in 1500ms (Views: 1445.7ms | ActiveRecord: 40.2ms | Allocations: 1139559)
+
+
