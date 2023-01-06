@@ -21,17 +21,6 @@ const OwnedListing = () => {
 
   let ownedListings = Object.values(listings).filter(l => l.hostId==sessionUser.id);
 
-  // let homeList = ownedListings?.map(home => {
-  //   return <li key={home.id} className="home-card">
-  //     <ul className="home-card-ul">
-  //       <li><img src={home.photo} className="home-profile-pic" alt="nan"/></li>
-  //       <li><p>{home.title}</p></li>
-  //       <li><p>{home.description}</p></li>
-  //       <li><p>${home.price} night</p></li>
-  //     </ul>
-  //   </li>
-  // })
-
   return (
     <div className="index">
       <div className="index-listings">
