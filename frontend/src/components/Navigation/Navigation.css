@@ -19,7 +19,7 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
+	/* font-size: 100%; */
 	/* font: inherit; */
 	vertical-align: baseline;
 }
@@ -72,6 +72,10 @@ Start my code
   justify-content: space-between;
   border: 0px;
   border-bottom: 1px solid #ddd;
+  position: sticky;
+  background-color: white;
+  top: 0px;
+  z-index: 2;
 }
 
 .nav-container > * {
@@ -103,13 +107,11 @@ Start my code
 }
 
 .logo-text {
-  font-weight: 1000;
+  font-weight: 700;
   font-size: 25px;
   display: flex;
   height: 80px;
   align-items: center;
-  /* font-variation-settings: "wght" 650; */
-  /* /* font-size:26px; */
 }
 
 /* mid search */

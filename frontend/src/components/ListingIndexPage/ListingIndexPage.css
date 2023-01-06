@@ -5,29 +5,70 @@ home-card-ul >
 home-profile-pic
 */
 
+/* index container */
 .index {
-  margin-top: 30px;
+  /* margin-top: 30px;
   margin-right: 30px;
-  margin-left: 30px;
+  margin-left: 30px; */
+  display: flex;
+  flex-direction: row;
+}
+/*
+listings
+*/
+.index-listings {
+  width: 50%;
+  /* height: 70%; */
+  /* overflow-y: scroll; */
+  /* border: 2px solid black; */
+  position: sticky;
+  top: 80px;
+  padding-top: 30px;
+}
+/*
+map
+*/
+.index-map {
+  /* left: 50%; */
+  /* border: 2px solid black; */
+  position: sticky;
+  right: 0px;
+  top: 80px;
+  bottom: 10px;
+  width: 50%;
+  height: 70%;
+  margin-bottom: -10px;
 }
 
+
 .index-ul {
-  display: grid;
-  grid-template-columns: repeat(5, 300px);
+  /* display: grid; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* grid-template-columns: repeat(5, 30px); */
   /* grid-row-gap: 15px; */
   gap: 40px;
 }
 
-.home-card {
+/* .home-card {
   padding-left: 50px;
-}
+} */
 
 .index-ul, .home-card-ul{
   list-style-type: none;
 }
 
 .home-profile-pic {
-  width: 300px;
-  height: 300px;
-  border-radius: 15px;
+  width: 250px;
+  height: 250px;
+  border-radius: 25px;
+}
+
+/* .index-listing {
+  right: 50%;
+} */
+
+#the-listing-index::-webkit-scrollbar {
+  display: none;
 }
