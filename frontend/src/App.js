@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 import ListingIndexPage from "./components/ListingIndexPage"
 // import CreateListing from "./components/CreateListing"
 import OwnedListing from "./components/OwnedListing"
+import Map from "./components/Map";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <ListingIndexPage />
+        </Route>
+        <Route exact path="/map">
+          <Map />
         </Route>
         <Route exact path="/listings">
           <OwnedListing />
