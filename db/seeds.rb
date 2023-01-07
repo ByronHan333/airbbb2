@@ -68,8 +68,8 @@ ApplicationRecord.transaction do
     )
 
     listing.photos.attach([
-      {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic2.png"), filename: "pic2.png"},
-      {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic1.png"), filename: "pic1.png"}
+      {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic2.png"), filename: "pic2_#{i}.png"},
+      {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/pic1.png"), filename: "pic1_#{i}.png"}
     ])
   end
 
