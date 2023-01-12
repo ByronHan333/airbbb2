@@ -1,0 +1,13 @@
+.trip {
+  display: flex;
+  justify-content: space-between;
+}
+.trip-photo-container {
+  width: 50%
+}
+.trip-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
