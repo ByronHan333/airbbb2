@@ -1,15 +1,119 @@
 .trip {
   display: flex;
   justify-content: space-between;
+  margin: 50px;
+  border: 1px solid lightgrey;
+  border-radius: 40px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
+
+.trip-info {
+  /* border: 1px solid black; */
+  padding: 60px;
+  width: 50%;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+
+.trip-top {
+  /* border: 1px solid black; */
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  height: 50%;
+  width: 100%;
+  text-align: center;
+}
+
+.trip-title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.trip-address {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+
+.trip-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  height: 50%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.trip-bottom-left {
+  /* border: 1px solid black; */
+  border-right: 1px solid lightgray;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 100%;
+  width: 100%;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.trip-bottom-left-word {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.trip-bottom-left-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.trip-bottom-right {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-left: 40px;
+  padding-bottom: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+.trip-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #dd3333;
+  background-color: #dd3333;
+  border-radius: 15px;
+  margin-right: 40px;
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
 .trip-photo-container {
   width: 50%
 }
+
 .trip-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
 }
-
-

@@ -1,6 +1,6 @@
 json.trips do
   json.set! @trip.id do
-    json.extract! @trip, :id, :user_id, :listing_id, :start_date, :end_date, :total_price
+    json.extract! @trip, :id, :user_id, :listing_id, :start_date, :end_date, :num_guests, :total_price
   end
 end
 

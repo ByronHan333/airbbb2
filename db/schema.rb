@@ -64,6 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_223818) do
     t.bigint "listing_id", null: false
     t.date "start_date", null: false
     t.date "end_date", null: false
+    t.integer "num_guests", null: false
     t.integer "total_price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

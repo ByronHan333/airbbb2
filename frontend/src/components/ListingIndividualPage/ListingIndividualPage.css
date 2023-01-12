@@ -64,6 +64,8 @@
   width: 50%;
   /* border: 1px solid black; */
   font-weight: 400;
+  display: flex;
+  flex-direction: column;
 }
 
 .listing-desc-1 {
@@ -90,6 +92,13 @@
   font-size: 18px;
 }
 
+.listing-desc-567 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
 .listing-desc-5 {
   padding-bottom: 10px;
   font-size: 18px;
@@ -105,10 +114,6 @@
 
 .listing-reserve {
   width: 50%;
-  border: 1px solid lightgrey;
-  margin-left: 50px;
-  padding-left: 16px;
-  border-radius: 30px;
 }
 
 .listing-map {

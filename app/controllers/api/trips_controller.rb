@@ -44,6 +44,6 @@ class Api::TripsController < ApplicationController
   end
 
   def trip_params
-    params.require(:trip).permit(:user_id, :listing_id, :start_date, :end_date, :total_price)
+    params.require(:trip).permit(:user_id, :listing_id, :start_date, :end_date, :num_guests, :total_price)
   end
 end

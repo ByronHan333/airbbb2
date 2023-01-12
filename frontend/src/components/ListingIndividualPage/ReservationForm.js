@@ -15,23 +15,34 @@ export default function ReservationForm({trip, listing, sessionUser}) {
   const dispatch = useDispatch();
   const startMDate = moment(startDate, 'YYYY-MM-DD')
   const endMDate = moment(endDate, 'YYYY-MM-DD')
+  const [errors, setErrors] = useState()
   let numDays = (endMDate-startMDate)/(86400000) ? (endMDate-startMDate)/(86400000) : 0
-
+  const currentDate = new Date()
   const handleSubmit = (e) => {
-    if (sessionUser){
+    setErrors()
+    if (!startDate || !endDate) {
+      setErrors('Date is not entered')
+    } else
+    {
+      if (sessionUser) {
       e.preventDefault();
       const result = dispatch(tripsActions.createTrip({
         user_id: sessionUser.id,
         listing_id: listing.id,
         start_date: startDate,
         end_date: endDate,
+        num_guests: numGuests,
         total_price: listing.price*numDays
       }))
       if (result) {
         history.push("/trips");
       }
+      }
     }
   }
+
+  console.log(startDate)
+  console.log(endDate)
 
   return (
     <form className='form'>
@@ -40,13 +51,13 @@ export default function ReservationForm({trip, listing, sessionUser}) {
         <div className="form-input-date">
           <div className='form-checkin'>
             <div>CHECK-IN</div>
-            <input className="date-input" type="date" value={startDate}
+            <input placeholder={currentDate} className="date-input" type="date" value={startDate}
             onChange={(e) => setStartDate(e.target.value)} required
             min={moment().format("YYYY-MM-DD")}/>
           </div>
           <div className='form-checkout'>
             <div>CHECK-OUT</div>
-            <input className="date-input" type="date" value={endDate}
+            <input placeholder={trip?.endDate} className="date-input" type="date" value={endDate}
             onChange={(e) => {
               setEndDate(e.target.value)
             }} required
@@ -58,7 +69,7 @@ export default function ReservationForm({trip, listing, sessionUser}) {
           <label>
             <select className="num-guests" onChange={(e) => setNumGuests(e.target.value)}>
             {[...Array(listing.numBeds).keys()].map(n => {
-              return <option value={n+1} key={n+1}>{n+1}</option>
+              return <option value={n+1} key={n+1} >{n+1}</option>
             })}
             </select>
           </label>
@@ -76,8 +87,11 @@ export default function ReservationForm({trip, listing, sessionUser}) {
         <div className="form-total-cost-left">Total cost:</div>
         <div className="form-total-cost-left">$ {(listing.price+20)*numDays}</div>
       </div>
+      <div className="form-error">
+        {errors ? errors : " "}
+      </div>
       <div className="form-button">
-        {(sessionUser) ? <div className="form-submit" onClick={handleSubmit}>Reserve</div> : <LoginFormModal text={"Reserve"}/>}
+        {(sessionUser) ? <div className="form-submit" onClick={handleSubmit}>Reserve</div> : <LoginFormModal text={"Reserve"} />}
       </div>
     </form>
   )

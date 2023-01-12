@@ -1,9 +1,15 @@
 .form {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  height:500px;
   font-size: 18px;
+  height: 500px;
+  justify-content: space-around;
+  margin: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border: 1px solid lightgrey;
+  border-radius: 40px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 .form > * {
@@ -83,7 +89,7 @@
   align-items: center;
   border: 1px solid #dd3333;
   background-color: #dd3333;
-  border-radius: 10px;
+  border-radius: 15px;
   margin-right: 40px;
   height: 50px;
   color: white;

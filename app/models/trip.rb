@@ -12,7 +12,7 @@
 #  updated_at  :datetime         not null
 #
 class Trip < ApplicationRecord
-  validates :user_id, :listing_id, :start_date, :end_date, :total_price, presence: true
+  validates :user_id, :listing_id, :start_date, :end_date, :num_guests, :total_price, presence: true
 
   belongs_to :user
   belongs_to :listing

@@ -113,6 +113,7 @@ Trip.create!(
   listing_id: 1,
   start_date: Date.new(2022,1,1),
   end_date: Date.new(2022,1,7),
+  num_guests: 4,
   total_price: Listing.find(1).price*7,
 )
 
@@ -121,6 +122,7 @@ Trip.create!(
   listing_id: 2,
   start_date: Date.new(2022,1,7),
   end_date: Date.new(2022,1,14),
+  num_guests: 3,
   total_price: Listing.find(2).price*7,
 )
 
@@ -129,6 +131,16 @@ Trip.create!(
   listing_id: 3,
   start_date: Date.new(2022,1,14),
   end_date: Date.new(2022,1,21),
+  num_guests: 2,
+  total_price: Listing.find(3).price*7,
+)
+
+Trip.create!(
+  user_id: 1,
+  listing_id: 4,
+  start_date: Date.new(2026,1,14),
+  end_date: Date.new(2026,1,21),
+  num_guests: 2,
   total_price: Listing.find(3).price*7,
 )
 
@@ -137,6 +149,7 @@ Trip.create!(
   listing_id: 1,
   start_date: Date.new(2022,1,7),
   end_date: Date.new(2022,1,14),
+  num_guests: 6,
   total_price: Listing.find(1).price*7,
 )
 

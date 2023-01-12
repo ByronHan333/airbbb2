@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import ReservationForm from '../ListingIndividualPage/ReservationForm'
 import * as tripsActions from '../../store/trip';
-
+import TripCard from '../TripIndexPage/TripCard'
 
 export default function TripEditPage(){
   const sessionUser = useSelector(state => state.session.user)
@@ -23,6 +23,7 @@ export default function TripEditPage(){
 
   return (
     <div>
+      <TripCard trip={trip} listing={listing} />
       <ReservationForm trip={trip} listing={listing} sessionUser={sessionUser}/>
     </div>
   )

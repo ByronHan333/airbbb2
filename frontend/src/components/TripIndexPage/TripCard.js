@@ -6,13 +6,14 @@ import { useHistory } from "react-router-dom";
 import './TripCard.css'
 
 export default function TripCard({trip, listing}) {
-  const currentDate = moment() ;
+  const currentDate = moment();
   const dispatch = useDispatch();
   const history = useHistory()
 
   const handleDelete = (e, trip) => {
     e.preventDefault();
     dispatch(tripActions.deleteTrip(trip.id));
+    history.push(`/trips`)
   }
 
   const handleUpdate = (e, trip) => {
@@ -21,24 +22,22 @@ export default function TripCard({trip, listing}) {
   }
 
   const tripStartDate = moment(trip.startDate, 'YYYY-MM-DD');
-  // console.log(tripStartDate > currentDate)
-  // console.log(listing);
-  // console.log(trip)
-  console.log(tripStartDate.subtract(1,'day').format('YYYY-MM-DD'))
   let img = listing?.photoUrls[0];
 
   let tripBottomRightComponent;
   if (tripStartDate.toDate() > currentDate.toDate()) {
-    tripBottomRightComponent = <div>
-      <div className="trip-updatebutton cursor" onClick={(e)=>handleUpdate(e, trip)}>Update Trip</div>
-      <div className="trip-deletebutton cursor" onClick={(e)=>handleDelete(e, trip)}>Cancel Trip</div>
+    tripBottomRightComponent = <div className="trip-bottom-right">
+      <div className="trip-updatebutton trip-button cursor" onClick={(e)=>handleUpdate(e, trip)}>Update Trip</div>
+      <div className="trip-deletebutton trip-button cursor" onClick={(e)=>handleDelete(e, trip)}>Cancel Trip</div>
       <div className="trip-delete-message">You can change/delete trip until {tripStartDate.subtract(1,'day').format('YYYY-MM-DD')}</div>
     </div>
   } else {
-    tripBottomRightComponent = <div>
-      <div>Post Review</div>
+    tripBottomRightComponent = <div className="trip-bottom-right">
+        <div className="trip-button">Post Review</div>
     </div>
   }
+
+  console.log(trip)
 
   if (!listing) return <></>
 
@@ -46,19 +45,27 @@ export default function TripCard({trip, listing}) {
     <div className="trip">
       <div className="trip-info">
         <div className="trip-top">
-          <div>{listing.title}</div>
-          <div>{listing.address}</div>
+          <div className="trip-title">{listing.title}</div>
+          <div className="trip-address">{listing.address}</div>
         </div>
         <div className="trip-bottom">
           <div className="trip-bottom-left">
-            <div>{trip.startDate}</div>
-            <div>{trip.endDate}</div>
-            <div>{listing.price}</div>
-            <div>{trip.totalPrice}</div>
+            <div className="trip-bottom-left-word">
+              <div>Start date</div>
+              <div>End date</div>
+              <div>Price</div>
+              <div>Num of guests</div>
+              <div>Total fee</div>
+            </div>
+            <div className="trip-bottom-left-data">
+              <div>{trip.startDate}</div>
+              <div>{trip.endDate}</div>
+              <div>${listing.price} night</div>
+              <div>{trip.numGuests}</div>
+              <div>${trip.totalPrice}</div>
+            </div>
           </div>
-          <div className="trip-bottom-right">
-            <div>{tripBottomRightComponent}</div>
-          </div>
+          {tripBottomRightComponent}
         </div>
       </div>
       <div className="trip-photo-container">

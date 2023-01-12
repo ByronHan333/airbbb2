@@ -53,12 +53,16 @@ export default function ListingIndividualPage() {
           <h1 className="listing-desc-3">{listing.address}</h1>
           <h1 className="listing-desc-4">$ {listing.price} / night</h1>
           <div className='solid-line'></div>
-          <h1 className="listing-desc-5">{listing.hasWifi ? <i className="fa-solid fa-wifi"/> : null}  WiFi</h1>
-          <h1 className="listing-desc-6">{listing.hasAc ? <i className="fa-solid fa-wind"/> : null}  AC</h1>
-          <h1 className="listing-desc-7"><i className="fa-solid fa-bed"></i> {listing.numBeds} Beds</h1>
+          <div className="listing-desc-567">
+            <h1 className="listing-desc-5">{listing.hasWifi ? <i className="fa-solid fa-wifi"/> : null}  WiFi</h1>
+            <h1 className="listing-desc-6">{listing.hasAc ? <i className="fa-solid fa-wind"/> : null}  AC</h1>
+            <h1 className="listing-desc-7"><i className="fa-solid fa-car"></i> Parking</h1>
+            <h1 className="listing-desc-7"><i className="fa-solid fa-cat"></i> Pet Friendly</h1>
+            <h1 className="listing-desc-7"><i className="fa-solid fa-bed"></i> {listing.numBeds} Beds</h1>
+          </div>
         </div>
         <div className="listing-reserve">
-          <h1><ReservationForm trip={null} listing={listing} sessionUser={sessionUser}/></h1>
+          <ReservationForm trip={null} listing={listing} sessionUser={sessionUser}/>
         </div>
       </div>
       <div className="listing-map">

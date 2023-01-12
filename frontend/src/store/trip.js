@@ -61,7 +61,7 @@ export const createTrip = (trip) => async dispatch => {
 }
 
 export const deleteTrip = (tripId) => async dispatch => {
-  const response = await csrfFetch(`api/trips/${tripId}`, {
+  const response = await csrfFetch(`/api/trips/${tripId}`, {
     method: 'DELETE'
   });
   if (response.ok) {
