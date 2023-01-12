@@ -29,6 +29,9 @@ class User < ApplicationRecord
   foreign_key: :host_id,
   dependent: :destroy
 
+  has_many :trips
+  has_many :trip_listings, through: :trips, source: :listing
+
   has_secure_password
 
   attr_reader :password

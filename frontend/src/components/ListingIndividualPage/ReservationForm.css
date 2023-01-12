@@ -1,0 +1,92 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height:500px;
+  font-size: 18px;
+}
+
+.form > * {
+  padding-left: 20px;
+}
+
+.form-night-price {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.form-input {
+  border: 1px solid lightgrey;
+  margin-left: 20px;
+  margin-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 20px;
+}
+
+.form-input-date {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  /* padding-right: 60px; */
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.form-input-date > * {
+  width: 47%;
+}
+
+.form-checkin {
+  border-right: 1px solid lightgray;
+  margin-right: 20px;
+}
+
+.date-input {
+  border: 0px solid black;
+  padding-top: 10px;
+  height: 20px;
+}
+
+.form-num-guest {
+  padding-top: 20px;
+}
+
+.num-guests {
+  padding-top: 10px;
+  border: none;
+  outline: none;
+  width: 100px;
+}
+
+.form-night-total {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 40px;
+}
+
+.form-service-fee {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 40px;
+}
+
+.form-total-cost {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 40px;
+}
+
+.form-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #dd3333;
+  background-color: #dd3333;
+  border-radius: 10px;
+  margin-right: 40px;
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+}

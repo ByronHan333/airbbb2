@@ -10,54 +10,56 @@ import { GoogleMap, useLoadScript, OverlayView } from "@react-google-maps/api";
 import './Map.css'
 import {styles} from './MapStyles'
 import SingleListingGrid from '../SingleListingGrid'
+import { useHistory } from "react-router-dom";
 
 export default function Map() {
-  const {isLoaded} = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY
-  });
-
   const dispatch = useDispatch()
   const listings = useSelector(state => state.listings)
-  // console.log(listings)
 
   useEffect(() => {
     dispatch(listingsActions.fetchListings())
   },[dispatch])
 
-  if (!isLoaded) return <div>Loading...</div>
-  return <MapContainer listings={Object.values(listings)}/>
+  return <MapContainer listings={Object.values(listings)} center={{lat:37.773972, lng:-122.431297}}/>
 }
 
-function PriceCard({price, onClick}) {
+export function PriceCard({list, onClick}) {
   return (
-    <div className="map-price-card" onClick={onClick}>
-      <p>$ {price}</p>
+    <div className="map-price-card cursor" onClick={onClick}>
+      <p>$ {list.price}</p>
     </div>
   )
 }
 
-function MapContainer({listings}) {
-  const center = useMemo(() => ({lat:37.773972, lng:-122.431297}), [])
+export function MapContainer({listings, center}) {
+  const {isLoaded} = useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY
+  });
 
-  const [showSingleListingGrid, setShowSingleListingGrid] = useState(false);
+  const centerM = useMemo(() => (center), [])
+  const history = useHistory()
 
-  useEffect(() => {
-    console.log(showSingleListingGrid)
+  // const [showSingleListingGrid, setShowSingleListingGrid] = useState(false);
 
-  },[showSingleListingGrid])
+  // useEffect(() => {
+  //   console.log(showSingleListingGrid)
 
-  const priceCardOnClick = (e) => {
+  // },[showSingleListingGrid])
+
+  const priceCardOnClick = (e, list) => {
     e.preventDefault()
-    setShowSingleListingGrid(s => !s)
+    // setShowSingleListingGrid(s => !s)
+    history.push(`/listings/${list.id}`)
   }
 
+  if (!isLoaded) return <div>Loading...</div>
   return (
     <>
-      <GoogleMap zoom={11} center={center} mapContainerClassName="map-container" options={{styles: styles}}>
+      <GoogleMap zoom={11} center={centerM} mapContainerClassName="map-container" options={{styles: styles}}>
         {listings.map(list => {
           return (
             <OverlayView key = {list.id} position={{lat:list.latitute, lng:list.longitude}} mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
-              <PriceCard price={list.price} onClick={priceCardOnClick} />
+              <PriceCard list={list} onClick={(e) => priceCardOnClick(e, list)} />
             </OverlayView>
           )
         })}

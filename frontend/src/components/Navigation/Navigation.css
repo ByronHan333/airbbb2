@@ -20,8 +20,9 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	/* font: inherit; */
+	font: inherit;
 	vertical-align: baseline;
+  font-family: "Montserrat", sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -202,6 +203,10 @@ Start my code
 .dropdown-profile li:hover {
   background-color: #ddd;
   display: block;
+}
+
+.cursor {
+  cursor: pointer;
 }
 
 /* display, position,  */
