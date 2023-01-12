@@ -9,15 +9,18 @@ Rails.application.routes.draw do
 
   post 'api/test', to: 'application#test'
 
+  get '/public/favicon.ico', to: 'application#favicon'
+
   namespace :api, defaults: { format: :json } do
-    resources :listings, only: [:index, :create, :show, :update, :destroy]
+    resources :listings, only: [:index, :create, :show, :destroy]
+    resources :trips, only: [:index, :create, :show, :update, :destroy]
     resources :users, only: :create
     resource :session, only: [:show, :create, :destroy]
   end
 
+
   get '*path', to: "static_pages#frontend_index", constraints: ->(req) {
     req.path.exclude? 'rails/active_storage'
   }
-
 
 end

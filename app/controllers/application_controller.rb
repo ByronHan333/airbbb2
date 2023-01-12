@@ -8,6 +8,9 @@ class ApplicationController < ActionController::API
   rescue_from ActionController::InvalidAuthenticityToken,
     with: :invalid_authenticity_token
 
+  def favicon
+    return nil
+  end
 
   def test
     if params.has_key?(:login)

@@ -40,7 +40,7 @@ const DropdownCard = ({user}) => {
     </ul>
   } else {
     ul = <ul className='dropdown-profile' >
-      <li><LoginFormModal /></li>
+      <li><LoginFormModal text={"Log In"} /></li>
       <li><SignupFormModal /></li>
       <li className="clickable" onClick={demoLogin} >Demo Login</li>
     </ul>

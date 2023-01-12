@@ -7,8 +7,8 @@
 #  description :text             not null
 #  host_id     :bigint           not null
 #  address     :string           not null
-#  latitute    :decimal(, )      not null
-#  longitude   :decimal(, )      not null
+#  latitute    :float            not null
+#  longitude   :float            not null
 #  price       :integer          not null
 #  num_beds    :integer          not null
 #  has_wifi    :boolean          default(FALSE), not null
@@ -23,6 +23,8 @@ class Listing < ApplicationRecord
   class_name: :User,
   foreign_key: :host_id,
   inverse_of: :listings
+
+  has_many :trips
 
   has_many_attached :photos
 end

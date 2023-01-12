@@ -6,6 +6,9 @@ import Navigation from "./components/Navigation";
 import ListingIndexPage from "./components/ListingIndexPage"
 // import CreateListing from "./components/CreateListing"
 import OwnedListing from "./components/OwnedListing"
+import ListingIndividualPage from "./components/ListingIndividualPage"
+import TripIndexPage from './components/TripIndexPage'
+import TripEditPage from './components/TripEditPage'
 import Map from "./components/Map";
 
 function App() {
@@ -16,16 +19,23 @@ function App() {
         <Route exact path="/">
           <ListingIndexPage />
         </Route>
-        <Route exact path="/map">
-          <Map />
+        <Route exact path="/listings/:listingId">
+          <ListingIndividualPage />
         </Route>
         <Route exact path="/listings">
           <OwnedListing />
+        </Route>
+        <Route exact path="/trips">
+          <TripIndexPage />
+        </Route>
+        <Route exact path="/trips/:tripId/edit">
+          <TripEditPage />
         </Route>
         <Route path="*">
           <Redirect to="/" />
         </Route>
       </Switch>
+      {/* <Footer /> sticky */}
     </>
   );
 }
