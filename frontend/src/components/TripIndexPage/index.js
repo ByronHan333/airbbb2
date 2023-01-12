@@ -29,10 +29,10 @@ export default function TripIndexPage() {
     <div className="trip-index">
       <div className="trip-message">Welcome Back! You have {trips.length} trips with Airbbb.</div>
       <div className="trip-current-upcoming-trips">
-        <div className="trip-upcoming-message">Current and upcoming trips</div>
+        <div className="trip-upcoming-message">Upcoming trips</div>
       </div>
       <div className="trip-past-trips">
-        <div className="trip-upcoming-message">Past Trips</div>
+        <div className="trip-upcoming-message">Current and past trips</div>
       </div>
       {trips.map(trip => {
         return <TripCard key={trip.id} trip={trip} listing={listings[trip.listingId]} />
