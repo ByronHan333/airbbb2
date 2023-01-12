@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import './TripCard.css'
 
 export default function TripCard({trip, listing}) {
-  const currentDate = moment().toDate() ;
+  const currentDate = moment() ;
   const dispatch = useDispatch();
   const history = useHistory()
 
@@ -20,24 +20,27 @@ export default function TripCard({trip, listing}) {
     history.push(`/trips/${trip.id}/edit`)
   }
 
-  const tripStartDate = moment(trip.startDate, 'YYYY-MM-DD').toDate();
+  const tripStartDate = moment(trip.startDate, 'YYYY-MM-DD');
   // console.log(tripStartDate > currentDate)
-  console.log(listing);
-  console.log(trip)
+  // console.log(listing);
+  // console.log(trip)
+  console.log(tripStartDate.subtract(1,'day').format('YYYY-MM-DD'))
   let img = listing?.photoUrls[0];
 
   let tripBottomRightComponent;
-  if (tripStartDate > currentDate) {
+  if (tripStartDate.toDate() > currentDate.toDate()) {
     tripBottomRightComponent = <div>
       <div className="trip-updatebutton cursor" onClick={(e)=>handleUpdate(e, trip)}>Update Trip</div>
       <div className="trip-deletebutton cursor" onClick={(e)=>handleDelete(e, trip)}>Cancel Trip</div>
-      <div></div>
+      <div className="trip-delete-message">You can change/delete trip until {tripStartDate.subtract(1,'day').format('YYYY-MM-DD')}</div>
     </div>
   } else {
     tripBottomRightComponent = <div>
       <div>Post Review</div>
     </div>
   }
+
+  if (!listing) return <></>
 
   return (
     <div className="trip">
