@@ -35,8 +35,8 @@ export default function ListingIndividualPage() {
 
   return (
     <div className="list-individual">
-      <div className="listing-title">
-        <h1>{listing.title}</h1>
+      <div className="listing-title medium">
+        {listing.title}
       </div>
       <div className="listing-details">
         <h1>{listing.address}</h1>
@@ -50,12 +50,12 @@ export default function ListingIndividualPage() {
       </div>
       <div className="listing-description-reserve">
         <div className="listing-desc">
-          <h1 className="listing-desc-1">Entire Home hosted by Allen</h1>
+          <h1 className="listing-desc-1 bold">Entire Home hosted by Allen</h1>
           <div className='solid-line'></div>
           <h1 className="listing-desc-2">{listing.description}</h1>
           <div className='solid-line'></div>
-          <h1 className="listing-desc-3">{listing.address}</h1>
-          <h1 className="listing-desc-4">$ {listing.price} / night</h1>
+          <h1 className="listing-desc-3 medium">{listing.address}</h1>
+          <h1 className="listing-desc-4 medium">$ {listing.price} / night</h1>
           <div className='solid-line'></div>
           <div className="listing-desc-567">
             {/* <div>What this place offer.</div> */}

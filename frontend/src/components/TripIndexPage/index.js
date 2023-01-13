@@ -28,9 +28,9 @@ export default function TripIndexPage() {
 
   return (
     <div className="trip-index">
-      <div className="trip-message">Welcome Back! You have {trips.length} trips with Airbbb.</div>
+      <div className="trip-message medium">Welcome Back! You have {trips.length} trips with Airbbb.</div>
       <div className="trip-current-upcoming-trips">
-        <div className="trip-upcoming-message">Upcoming trips</div>
+        <div className="trip-upcoming-message medium">Upcoming trips</div>
         {trips.map(trip => {
           const tripStartDate = moment(trip.startDate, 'YYYY-MM-DD');
           if (tripStartDate.toDate() > currentDate.toDate()) {
@@ -39,7 +39,7 @@ export default function TripIndexPage() {
         })}
       </div>
       <div className="trip-past-trips">
-        <div className="trip-prev-message">Current and past trips</div>
+        <div className="trip-prev-message medium">Current and past trips</div>
         {trips.map(trip => {
           const tripStartDate = moment(trip.startDate, 'YYYY-MM-DD');
           if (tripStartDate.toDate() <= currentDate.toDate()) {

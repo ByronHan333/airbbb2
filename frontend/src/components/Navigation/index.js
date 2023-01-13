@@ -35,7 +35,7 @@ function Navigation() {
     <div className='nav-container'>
       <NavLink className='logo-nav clickable' exact to='/'>
         <img src={logo} alt="nan" className='logo-img'/>
-        <p className='logo-text'>airbbb</p>
+        <p className='logo-text bold'>airbbb</p>
       </NavLink>
       {/* <div className='search'>
         <div className='search-anywhere'><p>Anywhere</p></div>
