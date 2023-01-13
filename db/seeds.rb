@@ -115,10 +115,10 @@ listing = Listing.create!(
 
 listing.photos.attach([
   {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{0}/p0.png"), filename: "#{titles[0]}_#{0}.png"},
-  {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{0}/p1.png"), filename: "#{titles[i]}_#{1}.png"},
-  {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{0}/p2.png"), filename: "#{titles[i]}_#{2}.png"},
-  {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{0}/p3.png"), filename: "#{titles[i]}_#{3}.png"},
-  {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{0}/p4.png"), filename: "#{titles[i]}_#{4}.png"},
+  {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{0}/p1.png"), filename: "#{titles[0]}_#{1}.png"},
+  {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{0}/p2.png"), filename: "#{titles[0]}_#{2}.png"},
+  {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{0}/p3.png"), filename: "#{titles[0]}_#{3}.png"},
+  {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{0}/p4.png"), filename: "#{titles[0]}_#{4}.png"},
 ])
 
 # More users
