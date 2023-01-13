@@ -9,6 +9,7 @@ class CreateListings < ActiveRecord::Migration[7.0]
       t.float :longitude, null: false
       t.integer :price, null: false
       t.integer :num_beds, null: false
+      t.integer :rating, null: false
       t.boolean :has_wifi, null: false, default: false
       t.boolean :has_ac, null: false, default: false
       t.timestamps

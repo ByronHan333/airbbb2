@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_10_223818) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_12_210334) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,6 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_223818) do
     t.float "longitude", null: false
     t.integer "price", null: false
     t.integer "num_beds", null: false
+    t.integer "rating", null: false
     t.boolean "has_wifi", default: false, null: false
     t.boolean "has_ac", default: false, null: false
     t.datetime "created_at", null: false
@@ -59,11 +60,30 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_10_223818) do
     t.index ["title"], name: "index_listings_on_title", unique: true
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "trip_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "listing_id", null: false
+    t.integer "overall", null: false
+    t.integer "cleaniness", null: false
+    t.integer "accuracy", null: false
+    t.integer "communication", null: false
+    t.integer "arrival", null: false
+    t.integer "location", null: false
+    t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_reviews_on_listing_id"
+    t.index ["trip_id"], name: "index_reviews_on_trip_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "trips", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "listing_id", null: false
     t.date "start_date", null: false
     t.date "end_date", null: false
+    t.integer "num_guests", null: false
     t.integer "total_price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

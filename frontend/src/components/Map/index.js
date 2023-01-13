@@ -12,13 +12,18 @@ import {styles} from './MapStyles'
 import SingleListingGrid from '../SingleListingGrid'
 import { useHistory } from "react-router-dom";
 
-export default function Map() {
+export default function Map({ownedListings}) {
   const dispatch = useDispatch()
-  const listings = useSelector(state => state.listings)
-
+  let listings = useSelector(state => state.listings)
   useEffect(() => {
     dispatch(listingsActions.fetchListings())
   },[dispatch])
+
+  if (ownedListings) {
+    listings = ownedListings;
+  }
+
+
 
   return <MapContainer listings={Object.values(listings)} center={{lat:37.773972, lng:-122.431297}}/>
 }
@@ -39,16 +44,8 @@ export function MapContainer({listings, center}) {
   const centerM = useMemo(() => (center), [])
   const history = useHistory()
 
-  // const [showSingleListingGrid, setShowSingleListingGrid] = useState(false);
-
-  // useEffect(() => {
-  //   console.log(showSingleListingGrid)
-
-  // },[showSingleListingGrid])
-
   const priceCardOnClick = (e, list) => {
     e.preventDefault()
-    // setShowSingleListingGrid(s => !s)
     history.push(`/listings/${list.id}`)
   }
 

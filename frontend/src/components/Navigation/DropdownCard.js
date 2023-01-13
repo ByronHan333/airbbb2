@@ -34,15 +34,15 @@ const DropdownCard = ({user}) => {
   let ul;
   if (user) {
     ul = <ul className='dropdown-profile'>
-      <li><NavLink className="clickable" style={{ textDecoration: 'none', color: 'black' }} to="/trips">Trips</NavLink></li>
-      <li><NavLink className="clickable" style={{ textDecoration: 'none', color: 'black' }} to="/listings">Listings</NavLink></li>
+      <li><NavLink className="clickable" style={{ textDecoration: 'none', color: 'black' }} to="/trips">My Trips</NavLink></li>
+      <li><NavLink className="clickable" style={{ textDecoration: 'none', color: 'black' }} to="/listings">My Listings</NavLink></li>
       <li><NavLink className="clickable" style={{ textDecoration: 'none', color: 'black' }} to="/" onClick={logout}>Log Out</NavLink></li>
     </ul>
   } else {
     ul = <ul className='dropdown-profile' >
       <li><LoginFormModal text={"Log In"} /></li>
       <li><SignupFormModal /></li>
-      <li className="clickable" onClick={demoLogin} >Demo Login</li>
+      <li><div className="clickable" onClick={demoLogin} >Demo Login</div></li>
     </ul>
   }
 

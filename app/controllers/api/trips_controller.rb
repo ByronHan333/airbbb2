@@ -1,6 +1,6 @@
 class Api::TripsController < ApplicationController
   before_action :require_logged_in, only: [:index, :create, :update, :destroy]
-  before_action :set_trip, only: [:show, :update, :update, :destroy]
+  before_action :set_trip, only: [:show, :update, :destroy]
 
   def index
     @trips = current_user.trips
@@ -24,7 +24,7 @@ class Api::TripsController < ApplicationController
   end
 
   def update
-    if @trip.update(tript_params)
+    if @trip.update(trip_params)
       render json: @trip
     else
       render json: @trip.errors.full_messages, status: :unprocessable_entity
@@ -44,6 +44,6 @@ class Api::TripsController < ApplicationController
   end
 
   def trip_params
-    params.require(:trip).permit(:user_id, :listing_id, :start_date, :end_date, :total_price)
+    params.require(:trip).permit(:user_id, :listing_id, :start_date, :end_date, :num_guests, :total_price)
   end
 end

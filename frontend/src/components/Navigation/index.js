@@ -37,12 +37,12 @@ function Navigation() {
         <img src={logo} alt="nan" className='logo-img'/>
         <p className='logo-text'>airbbb</p>
       </NavLink>
-      <div className='search'>
+      {/* <div className='search'>
         <div className='search-anywhere'><p>Anywhere</p></div>
         <div className='search-anyweek'><p>Any week</p></div>
         <div className='search-addguest'>Add guests</div>
         <i className="fa-solid fa-magnifying-glass search-mag"></i>
-      </div>
+      </div> */}
       <div className='dropdown' ref={drop}>
         <DropdownButton user={sessionUser} onClick={() => setshowDropdown(showDropdown => !showDropdown)}/>
         {showDropdown && <DropdownCard user={sessionUser}/>}

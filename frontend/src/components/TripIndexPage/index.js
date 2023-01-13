@@ -13,6 +13,7 @@ export default function TripIndexPage() {
   const trips = Object.values(useSelector(state => state.trips));
   const listings = useSelector(state => state.listings);
   const dispatch = useDispatch();
+  const currentDate = moment();
 
   useEffect(() => {
     dispatch(tripActions.fetchTrips());
@@ -30,13 +31,22 @@ export default function TripIndexPage() {
       <div className="trip-message">Welcome Back! You have {trips.length} trips with Airbbb.</div>
       <div className="trip-current-upcoming-trips">
         <div className="trip-upcoming-message">Upcoming trips</div>
+        {trips.map(trip => {
+          const tripStartDate = moment(trip.startDate, 'YYYY-MM-DD');
+          if (tripStartDate.toDate() > currentDate.toDate()) {
+            return <TripCard key={trip.id} trip={trip} listing={listings[trip.listingId]} />
+          }
+        })}
       </div>
       <div className="trip-past-trips">
-        <div className="trip-upcoming-message">Current and past trips</div>
+        <div className="trip-prev-message">Current and past trips</div>
+        {trips.map(trip => {
+          const tripStartDate = moment(trip.startDate, 'YYYY-MM-DD');
+          if (tripStartDate.toDate() <= currentDate.toDate()) {
+            return <TripCard key={trip.id} trip={trip} listing={listings[trip.listingId]} />
+          }
+        })}
       </div>
-      {trips.map(trip => {
-        return <TripCard key={trip.id} trip={trip} listing={listings[trip.listingId]} />
-      })}
     </div>
   )
 }

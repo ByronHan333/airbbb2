@@ -11,6 +11,7 @@
 #  longitude   :float            not null
 #  price       :integer          not null
 #  num_beds    :integer          not null
+#  rating      :integer          not null
 #  has_wifi    :boolean          default(FALSE), not null
 #  has_ac      :boolean          default(FALSE), not null
 #  created_at  :datetime         not null
@@ -25,6 +26,7 @@ class Listing < ApplicationRecord
   inverse_of: :listings
 
   has_many :trips
+  has_many :reviews
 
   has_many_attached :photos
 end

@@ -31,6 +31,7 @@ class User < ApplicationRecord
 
   has_many :trips
   has_many :trip_listings, through: :trips, source: :listing
+  has_many :reviews
 
   has_secure_password
 
