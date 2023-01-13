@@ -32,13 +32,13 @@ export default function TripCard({trip, listing}) {
   let tripBottomRightComponent;
   if (tripStartDate.toDate() > currentDate.toDate()) {
     tripBottomRightComponent = <div className="trip-bottom-right">
-      <div className="trip-updatebutton trip-button cursor" onClick={(e)=>handleUpdate(e, trip)}>Update Trip</div>
-      <div className="trip-deletebutton trip-button cursor" onClick={(e)=>handleDelete(e, trip)}>Cancel Trip</div>
+      <div className="trip-updatebutton trip-button cursor bold" onClick={(e)=>handleUpdate(e, trip)}>Update Trip</div>
+      <div className="trip-deletebutton trip-button cursor bold" onClick={(e)=>handleDelete(e, trip)}>Cancel Trip</div>
       <div className="trip-delete-message">You can change/delete trip until {tripStartDate.subtract(1,'day').format('YYYY-MM-DD')}</div>
     </div>
   } else {
     tripBottomRightComponent = <div className="trip-bottom-right">
-        <div className="trip-button cursor" onClick={(e)=>handleCreateReview(e, trip, listing)}>Post Review</div>
+        <div className="trip-button cursor bold" onClick={(e)=>handleCreateReview(e, trip, listing)}>Post Review</div>
     </div>
   }
 

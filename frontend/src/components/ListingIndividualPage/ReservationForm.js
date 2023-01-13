@@ -103,7 +103,7 @@ export default function ReservationForm({trip, listing, sessionUser}) {
         {errors ? errors : " "}
       </div>
       <div className="form-button">
-        {(sessionUser) ? <div className="form-submit" onClick={handleSubmit}>Reserve</div> : <LoginFormModal text={"Reserve"} />}
+        {(sessionUser) ? <div className="form-submit bold" onClick={handleSubmit}>Reserve</div> : <LoginFormModal text={"Reserve"} />}
       </div>
     </form>
   )
