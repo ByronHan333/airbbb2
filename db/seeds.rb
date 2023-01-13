@@ -99,6 +99,28 @@ descriptions = [
 
 users = [1, 2]
 
+listing = Listing.create!(
+  title: titles[0],
+  description: descriptions[0],
+  host_id: users.sample,
+  address: addresses[0],
+  latitute: latlon[0][0],
+  longitude: latlon[0][1],
+  price: rand(100...999),
+  num_beds: rand(3...8),
+  rating: 5,
+  has_wifi: true,
+  has_ac: true
+)
+
+listing.photos.attach([
+  {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{0}/p0.png"), filename: "#{titles[0]}_#{0}.png"},
+  {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{0}/p1.png"), filename: "#{titles[i]}_#{1}.png"},
+  {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{0}/p2.png"), filename: "#{titles[i]}_#{2}.png"},
+  {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{0}/p3.png"), filename: "#{titles[i]}_#{3}.png"},
+  {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{0}/p4.png"), filename: "#{titles[i]}_#{4}.png"},
+])
+
 # More users
 
 # 12.times do |i|
