@@ -100,129 +100,130 @@ descriptions = [
 users = [1, 2]
 
 # More users
-# 12.times do |i|
-#   listing = Listing.create!(
-#     title: titles[i],
-#     description: descriptions[i],
-#     host_id: users.sample,
-#     address: addresses[i],
-#     latitute: latlon[i][0],
-#     longitude: latlon[i][1],
-#     price: rand(100...999),
-#     num_beds: rand(3...8),
-#     rating: 5,
-#     has_wifi: true,
-#     has_ac: true
-#   )
 
-#   listing.photos.attach([
-#     {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{i}/p0.png"), filename: "pic1_#{i}.png"},
-#     {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{i}/p1.png"), filename: "pic2_#{i}.png"},
-#     {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{i}/p2.png"), filename: "pic3_#{i}.png"},
-#     {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{i}/p3.png"), filename: "pic4_#{i}.png"},
-#     {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{i}/p4.png"), filename: "pic5_#{i}.png"},
-#   ])
-# end
+12.times do |i|
+  listing = Listing.create!(
+    title: titles[i],
+    description: descriptions[i],
+    host_id: users.sample,
+    address: addresses[i],
+    latitute: latlon[i][0],
+    longitude: latlon[i][1],
+    price: rand(100...999),
+    num_beds: rand(3...8),
+    rating: 5,
+    has_wifi: true,
+    has_ac: true
+  )
 
-# puts "Creating trips..."
-# Trip.create!(
-#   user_id: 1,
-#   listing_id: 1,
-#   start_date: Date.new(2022,1,1),
-#   end_date: Date.new(2022,1,7),
-#   num_guests: 4,
-#   total_price: Listing.find(1).price*7,
-# )
+  listing.photos.attach([
+    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{i}/p0.png"), filename: "#{descriptions[i]}_#{0}.png"},
+    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{i}/p1.png"), filename: "#{descriptions[i]}_#{1}.png"},
+    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{i}/p2.png"), filename: "#{descriptions[i]}_#{2}.png"},
+    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{i}/p3.png"), filename: "#{descriptions[i]}_#{3}.png"},
+    {io: URI.open("https://airbbb-seeds.s3.us-west-1.amazonaws.com/p#{i}/p4.png"), filename: "#{descriptions[i]}_#{4}.png"},
+  ])
+end
 
-# Review.create!(
-#   trip_id: 1,
-#   user_id: 1,
-#   listing_id: 1,
-#   overall: 5,
-#   cleaniness: 5,
-#   accuracy: 5,
-#   communication: 5,
-#   arrival: 5,
-#   location: 5,
-#   content: "The host is super nice and showed us around."
-# )
+puts "Creating trips..."
+Trip.create!(
+  user_id: 1,
+  listing_id: 1,
+  start_date: Date.new(2022,1,1),
+  end_date: Date.new(2022,1,7),
+  num_guests: 4,
+  total_price: Listing.find(1).price*7,
+)
 
-# Trip.create!(
-#   user_id: 1,
-#   listing_id: 2,
-#   start_date: Date.new(2022,1,2),
-#   end_date: Date.new(2022,1,9),
-#   num_guests: 3,
-#   total_price: Listing.find(2).price*7,
-# )
+Review.create!(
+  trip_id: 1,
+  user_id: 1,
+  listing_id: 1,
+  overall: 5,
+  cleaniness: 5,
+  accuracy: 5,
+  communication: 5,
+  arrival: 5,
+  location: 5,
+  content: "The host is super nice and showed us around."
+)
 
-# Review.create!(
-#   trip_id: 1,
-#   user_id: 1,
-#   listing_id: 2,
-#   overall: 5,
-#   cleaniness: 5,
-#   accuracy: 5,
-#   communication: 5,
-#   arrival: 5,
-#   location: 5,
-#   content: "I recommend come here again!"
-# )
+Trip.create!(
+  user_id: 1,
+  listing_id: 2,
+  start_date: Date.new(2022,1,2),
+  end_date: Date.new(2022,1,9),
+  num_guests: 3,
+  total_price: Listing.find(2).price*7,
+)
 
-
-# Trip.create!(
-#   user_id: 1,
-#   listing_id: 3,
-#   start_date: Date.new(2022,1,3),
-#   end_date: Date.new(2022,1,10),
-#   num_guests: 2,
-#   total_price: Listing.find(3).price*7,
-# )
-
-# Review.create!(
-#   trip_id: 1,
-#   user_id: 1,
-#   listing_id: 3,
-#   overall: 4,
-#   cleaniness: 4,
-#   accuracy: 4,
-#   communication: 4,
-#   arrival: 4,
-#   location: 4,
-#   content: "The location is not precise, home is not very clean"
-# )
+Review.create!(
+  trip_id: 1,
+  user_id: 1,
+  listing_id: 2,
+  overall: 5,
+  cleaniness: 5,
+  accuracy: 5,
+  communication: 5,
+  arrival: 5,
+  location: 5,
+  content: "I recommend come here again!"
+)
 
 
-# Trip.create!(
-#   user_id: 1,
-#   listing_id: 4,
-#   start_date: Date.new(2026,1,14),
-#   end_date: Date.new(2026,1,21),
-#   num_guests: 2,
-#   total_price: Listing.find(3).price*7,
-# )
+Trip.create!(
+  user_id: 1,
+  listing_id: 3,
+  start_date: Date.new(2022,1,3),
+  end_date: Date.new(2022,1,10),
+  num_guests: 2,
+  total_price: Listing.find(3).price*7,
+)
 
-# Trip.create!(
-#   user_id: 2,
-#   listing_id: 1,
-#   start_date: Date.new(2022,1,7),
-#   end_date: Date.new(2022,1,14),
-#   num_guests: 6,
-#   total_price: Listing.find(1).price*7,
-# )
+Review.create!(
+  trip_id: 1,
+  user_id: 1,
+  listing_id: 3,
+  overall: 4,
+  cleaniness: 4,
+  accuracy: 4,
+  communication: 4,
+  arrival: 4,
+  location: 4,
+  content: "The location is not precise, home is not very clean"
+)
 
-# Review.create!(
-#   trip_id: 5,
-#   user_id: 2,
-#   listing_id: 1,
-#   overall: 5,
-#   cleaniness: 5,
-#   accuracy: 5,
-#   communication: 5,
-#   arrival: 5,
-#   location: 5,
-#   content: "would come next time"
-# )
+
+Trip.create!(
+  user_id: 1,
+  listing_id: 4,
+  start_date: Date.new(2026,1,14),
+  end_date: Date.new(2026,1,21),
+  num_guests: 2,
+  total_price: Listing.find(3).price*7,
+)
+
+Trip.create!(
+  user_id: 2,
+  listing_id: 1,
+  start_date: Date.new(2022,1,7),
+  end_date: Date.new(2022,1,14),
+  num_guests: 6,
+  total_price: Listing.find(1).price*7,
+)
+
+Review.create!(
+  trip_id: 5,
+  user_id: 2,
+  listing_id: 1,
+  overall: 5,
+  cleaniness: 5,
+  accuracy: 5,
+  communication: 5,
+  arrival: 5,
+  location: 5,
+  content: "would come next time"
+)
 
 
 puts "Done!"
