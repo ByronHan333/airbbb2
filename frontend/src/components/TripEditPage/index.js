@@ -10,10 +10,11 @@ export default function TripEditPage(){
   const {tripId} = useParams()
   const trip = useSelector(state => state.trips[tripId])
   const listing = useSelector(state => state.listings[trip?.listingId])
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(()=>{
     dispatch(tripsActions.fetchTrip(tripId));
+
   },[dispatch])
 
   if (!trip || !listing) return <></>
