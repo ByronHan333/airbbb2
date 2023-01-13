@@ -48,17 +48,17 @@ export default function TripCard({trip, listing}) {
     <div className="trip">
       <div className="trip-info">
         <div className="trip-top">
-          <div className="trip-title">{listing.title}</div>
+          <div className="trip-title medium">{listing.title}</div>
           <div className="trip-address">{listing.address}</div>
         </div>
         <div className="trip-bottom">
           <div className="trip-bottom-left">
             <div className="trip-bottom-left-word">
-              <div>Start date</div>
-              <div>End date</div>
-              <div>Price</div>
-              <div>Num of guests</div>
-              <div>Total fee</div>
+              <div className="medium">Start date</div>
+              <div className="medium">End date</div>
+              <div className="medium">Price</div>
+              <div className="medium">Num of guests</div>
+              <div className="medium">Total fee</div>
             </div>
             <div className="trip-bottom-left-data">
               <div>{trip.startDate}</div>

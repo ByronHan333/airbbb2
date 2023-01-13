@@ -9,6 +9,7 @@ import configureStore from './store';
 import csrfFetch, { restoreCSRF } from './store/csrf';
 import * as sessionActions from './store/session'
 import * as listingsActions from './store/listing'
+import './index.css'
 
 
 const store = configureStore();

@@ -99,33 +99,33 @@ export default function ReviewForm({sessionUser, trip, listing}) {
     <form className="review" onSubmit={handleSubmit}>
       <div className="review-left">
         <div className="review-ratings-1">
-          <p>Overall</p>
+          <p className='medium'>Overall</p>
           <StyledRatingContainer setState={setOverall}/>
         </div>
         <div className="review-ratings-2">
-          <p>Cleaniess</p>
+          <p className='medium'>Cleaniess</p>
           <StyledRatingContainer setState={setCleaniness} />
         </div>
         <div className="review-ratings-3">
-          <p>Accuracy</p>
+          <p className='medium'>Accuracy</p>
           <StyledRatingContainer setState={setAccuracy} />
         </div>
         <div className="review-ratings-4">
-          <p>Communication</p>
+          <p className='medium'>Communication</p>
           <StyledRatingContainer setState={setCommunication} />
         </div>
         <div className="review-ratings-5">
-          <p>Arrival</p>
+          <p className='medium'>Arrival</p>
           <StyledRatingContainer setState={setArrival} />
         </div>
         <div className="review-ratings-6">
-          <p>Location</p>
+          <p className='medium'>Location</p>
           <StyledRatingContainer setState={setLocation} />
         </div>
       </div>
 
       <div className="review-right">
-        <div className="review-right-message">How do you like this place?</div>
+        <div className="review-right-message medium">How do you like this place?</div>
         <textarea className="review-right-textarea" rows="10" cols="50" onChange={(e) => setContent(e.target.value)}></textarea>
         <input type="submit" className='review-button cursor' value="Submit Review"></input>
       </div>

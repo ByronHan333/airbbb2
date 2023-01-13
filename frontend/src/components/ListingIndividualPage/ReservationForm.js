@@ -58,7 +58,7 @@ export default function ReservationForm({trip, listing, sessionUser}) {
 
   return (
     <form className='reservation-form'>
-      <div className="form-night-price">${listing.price} night</div>
+      <div className="form-night-price medium">${listing.price} night</div>
       <div className="form-input">
         <div className="form-input-date">
           <div className='form-checkin'>
@@ -96,8 +96,8 @@ export default function ReservationForm({trip, listing, sessionUser}) {
         <div className="form-service-fee-left">$ {20 * numDays}</div>
       </div>
       <div className="form-total-cost">
-        <div className="form-total-cost-left">Total cost:</div>
-        <div className="form-total-cost-left">$ {(listing.price+20)*numDays}</div>
+        <div className="form-total-cost-left medium">Total cost:</div>
+        <div className="form-total-cost-left medium">$ {(listing.price+20)*numDays}</div>
       </div>
       <div className="form-error">
         {errors ? errors : " "}
