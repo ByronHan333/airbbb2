@@ -1,0 +1,11 @@
+.review-index {
+    display: grid;
+    /* justify-content: space-between; */
+    /* margin: 50px; */
+    grid-template-columns: auto auto;
+    border: 1px solid lightgrey;
+    border-radius: 30px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    /* height: 1000px; */
+    height: 100%;
+}

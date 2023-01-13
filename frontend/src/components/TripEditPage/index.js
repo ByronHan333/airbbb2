@@ -12,9 +12,6 @@ export default function TripEditPage(){
   const listing = useSelector(state => state.listings[trip?.listingId])
   const dispatch = useDispatch()
 
-  console.log(trip)
-  console.log(listing)
-
   useEffect(()=>{
     dispatch(tripsActions.fetchTrip(tripId));
   },[dispatch])

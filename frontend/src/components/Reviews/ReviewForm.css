@@ -1,0 +1,75 @@
+.review {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px;
+  border: 1px solid lightgrey;
+  border-radius: 30px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.review-left {
+  /* border: 1px solid black; */
+  padding: 0px;
+  width: 50%;
+  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: auto auto;
+  border-right: 1px solid lightgray;
+  margin: 40px;
+}
+
+.review-ratings-1, .review-ratings-2, .review-ratings-3, .review-ratings-4, .review-ratings-5, .review-ratings-6 {
+  /* border: 1px solid black; */
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-left > * > p {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.review-icon {
+  font-size: 40px;
+}
+
+.review-right {
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 40px 40px 20px;
+  margin-right: 40px;
+  width: 50%;
+}
+
+.review-right-message {
+  font-size: 35px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.review-right-textarea {
+  font-size: 20px;
+}
+
+.review-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #dd3333;
+  background-color: #dd3333;
+  border-radius: 15px;
+  margin-right: 40px;
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  width: 100%;
+}

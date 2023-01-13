@@ -9,6 +9,7 @@ import OwnedListing from "./components/OwnedListing"
 import ListingIndividualPage from "./components/ListingIndividualPage"
 import TripIndexPage from './components/TripIndexPage'
 import TripEditPage from './components/TripEditPage'
+import ReviewNewPage from './components/Reviews/ReviewNewPage'
 import Map from "./components/Map";
 
 function App() {
@@ -30,6 +31,12 @@ function App() {
         </Route>
         <Route exact path="/trips/:tripId/edit">
           <TripEditPage />
+        </Route>
+        <Route exact path="/reviews">
+          {/* <TripIndexPage /> */}
+        </Route>
+        <Route exact path="/reviews/new">
+          <ReviewNewPage />
         </Route>
         <Route path="*">
           <Redirect to="/" />

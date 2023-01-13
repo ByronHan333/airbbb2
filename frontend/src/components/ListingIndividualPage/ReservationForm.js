@@ -41,11 +41,8 @@ export default function ReservationForm({trip, listing, sessionUser}) {
     }
   }
 
-  console.log(startDate)
-  console.log(endDate)
-
   return (
-    <form className='form'>
+    <form className='reservation-form'>
       <div className="form-night-price">${listing.price} night</div>
       <div className="form-input">
         <div className="form-input-date">

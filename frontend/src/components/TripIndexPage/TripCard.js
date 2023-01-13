@@ -21,6 +21,11 @@ export default function TripCard({trip, listing}) {
     history.push(`/trips/${trip.id}/edit`)
   }
 
+  const handleCreateReview = (e) => {
+    e.preventDefault();
+    history.push(`/reviews/new`, {listing: listing, trip: trip})
+  }
+
   const tripStartDate = moment(trip.startDate, 'YYYY-MM-DD');
   let img = listing?.photoUrls[0];
 
@@ -33,11 +38,9 @@ export default function TripCard({trip, listing}) {
     </div>
   } else {
     tripBottomRightComponent = <div className="trip-bottom-right">
-        <div className="trip-button">Post Review</div>
+        <div className="trip-button cursor" onClick={(e)=>handleCreateReview(e, trip, listing)}>Post Review</div>
     </div>
   }
-
-  console.log(trip)
 
   if (!listing) return <></>
 

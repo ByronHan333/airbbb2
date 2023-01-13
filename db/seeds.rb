@@ -94,6 +94,7 @@ users = [1, 2]
     longitude: -122-rand(24..44)/100.0, #0.24 - 0.44
     price: rand(100...999),
     num_beds: rand(2...8),
+    rating: 5,
     has_wifi: true,
     has_ac: true
   )
@@ -117,23 +118,64 @@ Trip.create!(
   total_price: Listing.find(1).price*7,
 )
 
-Trip.create!(
+Review.create!(
+  trip_id: 1,
   user_id: 1,
-  listing_id: 2,
-  start_date: Date.new(2022,1,7),
-  end_date: Date.new(2022,1,14),
-  num_guests: 3,
-  total_price: Listing.find(2).price*7,
+  listing_id: 1,
+  overall: 5,
+  cleaniness: 5,
+  accuracy: 5,
+  communication: 5,
+  arrival: 5,
+  location: 5,
+  content: "The host is super nice and showed us around."
 )
 
 Trip.create!(
   user_id: 1,
+  listing_id: 2,
+  start_date: Date.new(2022,1,2),
+  end_date: Date.new(2022,1,9),
+  num_guests: 3,
+  total_price: Listing.find(2).price*7,
+)
+
+Review.create!(
+  trip_id: 1,
+  user_id: 1,
+  listing_id: 2,
+  overall: 5,
+  cleaniness: 5,
+  accuracy: 5,
+  communication: 5,
+  arrival: 5,
+  location: 5,
+  content: "I recommend come here again!"
+)
+
+
+Trip.create!(
+  user_id: 1,
   listing_id: 3,
-  start_date: Date.new(2022,1,14),
-  end_date: Date.new(2022,1,21),
+  start_date: Date.new(2022,1,3),
+  end_date: Date.new(2022,1,10),
   num_guests: 2,
   total_price: Listing.find(3).price*7,
 )
+
+Review.create!(
+  trip_id: 1,
+  user_id: 1,
+  listing_id: 3,
+  overall: 4,
+  cleaniness: 4,
+  accuracy: 4,
+  communication: 4,
+  arrival: 4,
+  location: 4,
+  content: "The location is not precise, home is not very clean"
+)
+
 
 Trip.create!(
   user_id: 1,
@@ -152,5 +194,19 @@ Trip.create!(
   num_guests: 6,
   total_price: Listing.find(1).price*7,
 )
+
+Review.create!(
+  trip_id: 5,
+  user_id: 2,
+  listing_id: 1,
+  overall: 5,
+  cleaniness: 5,
+  accuracy: 5,
+  communication: 5,
+  arrival: 5,
+  location: 5,
+  content: "would come next time"
+)
+
 
 puts "Done!"

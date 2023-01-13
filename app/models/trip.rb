@@ -7,6 +7,7 @@
 #  listing_id  :bigint           not null
 #  start_date  :date             not null
 #  end_date    :date             not null
+#  num_guests  :integer          not null
 #  total_price :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -16,5 +17,7 @@ class Trip < ApplicationRecord
 
   belongs_to :user
   belongs_to :listing
+
+  has_one :review
 
 end

@@ -93,27 +93,28 @@
 }
 
 .listing-desc-567 {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
+  /* flex-direction: column; */
+  /* justify-content: space-around; */
+  height: 15%;
 }
 
-.listing-desc-5 {
-  padding-bottom: 10px;
+.listing-desc-567 > * {
+  padding-bottom: 5px;
   font-size: 18px;
+  /* border: 1px solid black; */
+  /* height: 50%; */
 }
-.listing-desc-6 {
-  padding-bottom: 10px;
-  font-size: 18px;
-}
-.listing-desc-7 {
-  padding-bottom: 10px;
-  font-size: 18px;
+
+.listing-review-index-container {
+  border: 1px solid black;
+  height: 200px;
 }
 
 .listing-reserve {
   width: 50%;
+  border: 1px solid black;
 }
 
 .listing-map {

@@ -8,17 +8,21 @@ import moment from 'moment';
 import ReservationForm from './ReservationForm'
 import {MapContainer} from '../Map'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ReviewIndex from "../Reviews/ReviewIndex"
+import * as reviewsActions from "../../store/review"
 
 
 export default function ListingIndividualPage() {
   const { listingId } = useParams();
   const sessionUser = useSelector(state => state.session.user);
   const listing = useSelector(state => state.listings[listingId])
+  const reviews = useSelector(state => state.reviews)
   const dispatch = useDispatch();
   const position= {lat:listing?.latitute, lng:listing?.longitude}
 
   useEffect(() => {
     dispatch(listingsActions.fetchListing(listingId));
+    dispatch(reviewsActions.fetchReviews(listingId));
   }, [dispatch, listingId])
 
   if (!listing) return <></>
@@ -57,8 +61,12 @@ export default function ListingIndividualPage() {
             <h1 className="listing-desc-5">{listing.hasWifi ? <i className="fa-solid fa-wifi"/> : null}  WiFi</h1>
             <h1 className="listing-desc-6">{listing.hasAc ? <i className="fa-solid fa-wind"/> : null}  AC</h1>
             <h1 className="listing-desc-7"><i className="fa-solid fa-car"></i> Parking</h1>
-            <h1 className="listing-desc-7"><i className="fa-solid fa-cat"></i> Pet Friendly</h1>
-            <h1 className="listing-desc-7"><i className="fa-solid fa-bed"></i> {listing.numBeds} Beds</h1>
+            <h1 className="listing-desc-8"><i className="fa-solid fa-cat"></i> Pet Friendly</h1>
+            <h1 className="listing-desc-10"><i className="fa-solid fa-water-ladder"></i> Swimming Pool</h1>
+            <h1 className="listing-desc-9"><i className="fa-solid fa-bed"></i> {listing.numBeds} Beds</h1>
+          </div>
+          <div className="listing-review-index-container">
+          <ReviewIndex reviews={reviews}/>
           </div>
         </div>
         <div className="listing-reserve">
@@ -66,7 +74,7 @@ export default function ListingIndividualPage() {
         </div>
       </div>
       <div className="listing-map">
-        <MapContainer listings={[listing]} center={position}/>
+        {/* <MapContainer listings={[listing]} center={position}/> */}
       </div>
 
     </div>
