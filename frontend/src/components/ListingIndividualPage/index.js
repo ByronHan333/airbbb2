@@ -58,6 +58,7 @@ export default function ListingIndividualPage() {
           <h1 className="listing-desc-4">$ {listing.price} / night</h1>
           <div className='solid-line'></div>
           <div className="listing-desc-567">
+            {/* <div>What this place offer.</div> */}
             <h1 className="listing-desc-5">{listing.hasWifi ? <i className="fa-solid fa-wifi"/> : null}  WiFi</h1>
             <h1 className="listing-desc-6">{listing.hasAc ? <i className="fa-solid fa-wind"/> : null}  AC</h1>
             <h1 className="listing-desc-7"><i className="fa-solid fa-car"></i> Parking</h1>
@@ -65,8 +66,9 @@ export default function ListingIndividualPage() {
             <h1 className="listing-desc-10"><i className="fa-solid fa-water-ladder"></i> Swimming Pool</h1>
             <h1 className="listing-desc-9"><i className="fa-solid fa-bed"></i> {listing.numBeds} Beds</h1>
           </div>
+          <div className='solid-line'></div>
           <div className="listing-review-index-container">
-          <ReviewIndex reviews={reviews}/>
+          <ReviewIndex reviews={reviews} listingId={listingId}/>
           </div>
         </div>
         <div className="listing-reserve">
@@ -74,7 +76,7 @@ export default function ListingIndividualPage() {
         </div>
       </div>
       <div className="listing-map">
-        {/* <MapContainer listings={[listing]} center={position}/> */}
+        <MapContainer listings={[listing]} center={position}/>
       </div>
 
     </div>

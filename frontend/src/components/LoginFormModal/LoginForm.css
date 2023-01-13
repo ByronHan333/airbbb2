@@ -7,6 +7,7 @@
   font-size: 20px;
   border-bottom:1px solid #CCC;
   font-weight: bold;
+  width: 550px;
 }
 
 .login-message {
@@ -48,4 +49,20 @@
   color:white;
   font-weight: bold;
   font-size: medium;
+}
+
+.form-button > .loginFormModalButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #dd3333;
+  background-color: #dd3333;
+  border-radius: 15px;
+  margin-right: 40px;
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  /* margin-right: -10px; */
+  width: 94%;
 }

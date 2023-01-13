@@ -82,7 +82,9 @@ Start my code
 }
 
 .nav-container > * {
-  margin: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+
 }
 
 /* left hand side logo and text */

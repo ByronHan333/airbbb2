@@ -19,7 +19,8 @@
 }
 
 #modal-content {
-  width: 550px;
+  /* width: 550px; */
+  width: auto;
   height: 680px;
   position: absolute;
   background-color:white;

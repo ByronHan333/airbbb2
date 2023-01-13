@@ -8,6 +8,9 @@ import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
 import { useState } from 'react';
 import './ReviewForm.css'
+import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import * as reviewActions from '../../store/review'
 
 const StyledRating = styled(Rating)(({ theme }) => ({
   '& .MuiRating-iconEmpty .MuiSvgIcon-root': {
@@ -72,12 +75,28 @@ export default function ReviewForm({sessionUser, trip, listing}) {
   const [arrival, setArrival] = useState(5);
   const [location, setLocation] = useState(5);
   const [content, setContent] = useState();
+  const history = useHistory()
+  const dispatch = useDispatch()
 
-
-
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    dispatch(reviewActions.createReview({
+      user_id: sessionUser.id,
+      trip_id: trip.id,
+      listing_id: listing.id,
+      overall,
+      cleaniness,
+      accuracy,
+      communication,
+      location,
+      arrival,
+      content
+    }))
+    history.push(`/listings/${listing.id}`)
+  }
 
   return (
-    <div className="review">
+    <form className="review" onSubmit={handleSubmit}>
       <div className="review-left">
         <div className="review-ratings-1">
           <p>Overall</p>
@@ -106,10 +125,10 @@ export default function ReviewForm({sessionUser, trip, listing}) {
       </div>
 
       <div className="review-right">
-        <div className="review-right-message">How do you like this trip?</div>
+        <div className="review-right-message">How do you like this place?</div>
         <textarea className="review-right-textarea" rows="10" cols="50" onChange={(e) => setContent(e.target.value)}></textarea>
-        <div className='review-button cursor'>Submit Review</div>
+        <input type="submit" className='review-button cursor' value="Submit Review"></input>
       </div>
-    </div>
+    </form>
   )
 }

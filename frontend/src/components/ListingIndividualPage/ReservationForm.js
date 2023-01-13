@@ -1,7 +1,7 @@
 import LoginFormModal from '../LoginFormModal'
 import moment from 'moment';
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import * as tripsActions from '../../store/trip';
 import './ReservationForm.css'
@@ -18,13 +18,14 @@ export default function ReservationForm({trip, listing, sessionUser}) {
   const [errors, setErrors] = useState()
   let numDays = (endMDate-startMDate)/(86400000) ? (endMDate-startMDate)/(86400000) : 0
   const currentDate = new Date()
+  const {tripId} = useParams()
+
   const handleSubmit = (e) => {
     setErrors()
     if (!startDate || !endDate) {
       setErrors('Date is not entered')
-    } else
-    {
-      if (sessionUser) {
+
+    } else if (sessionUser && !tripId) {
       e.preventDefault();
       const result = dispatch(tripsActions.createTrip({
         user_id: sessionUser.id,
@@ -37,8 +38,22 @@ export default function ReservationForm({trip, listing, sessionUser}) {
       if (result) {
         history.push("/trips");
       }
+    } else if (sessionUser && tripId) {
+      e.preventDefault();
+      const result = dispatch(tripsActions.updateTrip({
+        id: tripId,
+        user_id: sessionUser.id,
+        listing_id: listing.id,
+        start_date: startDate,
+        end_date: endDate,
+        num_guests: numGuests,
+        total_price: listing.price*numDays
+      }))
+      if (result) {
+        history.push("/trips");
       }
     }
+
   }
 
   return (

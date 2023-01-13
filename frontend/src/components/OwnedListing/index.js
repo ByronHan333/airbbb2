@@ -36,7 +36,7 @@ const OwnedListing = () => {
       </div>
       <div className="index-map">
         {/* <h1>Map</h1> */}
-        <Map />
+        <Map ownedListings={ownedListings}/>
       </div>
     </div>
   )

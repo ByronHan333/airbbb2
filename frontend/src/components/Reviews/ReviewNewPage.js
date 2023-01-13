@@ -6,7 +6,7 @@ import { Modal } from '../../context/Modal';
 import LoginForm from '../LoginFormModal/LoginForm';
 
 export default function ReviewNewPage() {
-  const location = useLocation()
+  const location = useLocation();
   const trip = location.state.trip;
   const listing = location.state.listing;
   const sessionUser = useSelector(state => state.session.user)

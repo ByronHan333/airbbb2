@@ -60,6 +60,25 @@ export const createTrip = (trip) => async dispatch => {
   }
 }
 
+export const updateTrip = (trip) => async dispatch => {
+  const response = await csrfFetch(`/api/trips/${trip.id}`, {
+    method: 'PUT',
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(trip)
+  });
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(receiveTrips(data.trips));
+    return true
+  } else {
+    console.log('createTrips error')
+    return false
+  }
+}
+
 export const deleteTrip = (tripId) => async dispatch => {
   const response = await csrfFetch(`/api/trips/${tripId}`, {
     method: 'DELETE'
