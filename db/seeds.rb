@@ -39,7 +39,13 @@ addresses = [
   'Pacifica, California',
   'Brisbane, California',
   'Monterey, California',
-  'Half Moon Bay, California'
+  'Half Moon Bay, California',
+  'Alameda, ',
+  'Burlingame, ',
+  'Foster City, ',
+  'Newwark, ',
+  'Oakland, ',
+  'San Francisco, '
 ]
 
 latlon = [
@@ -54,7 +60,13 @@ titles = [
   'Private Luxury in County Park near town',
   'SPECTACULAR OCEAN-FRONT HOME IN MONTEREY BAY',
   'Walk to the Beach from this Ocean Front Home',
-
+  'Surfscape Beach House, Private Beach & Ocean views',
+  'Amazing Welcoming Unique Ocean Home',
+  'Jaw-Dropping Beach-Front Retreat!',
+  'Sea Glass! Amazing Views!',
+  'Coastal Estate w Hot Tub Ocean',
+  'Oceanfront Beach House',
+  'Oceanfront Boho Retreat - Pacific Sunset Views'
 ]
 
 descriptions = [
@@ -83,7 +95,7 @@ users = [1, 2]
     longitude: latlon[i][1],
     price: rand(100...999),
     num_beds: rand(3...8),
-    rating: 5,
+    # rating: 5,
     has_wifi: true,
     has_ac: true
   )
