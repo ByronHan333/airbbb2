@@ -18,7 +18,7 @@
 #  updated_at  :datetime         not null
 #
 class Listing < ApplicationRecord
-  validates :title, :description, :host_id, :address, :latitute, :longitude, :price, :num_beds, :has_wifi, :has_ac, presence: true
+  validates :title, :description, :host_id, :address, :latitute, :longitude, :price, :num_beds, :rating, :has_wifi, :has_ac, presence: true
 
   belongs_to :host,
   class_name: :User,
