@@ -43,7 +43,7 @@ export default function ReviewIndex({reviews, listingId}) {
           return <div><ReviewCard review={review} /></div>
         })}
       </div>
-        {/* {<ReviewFormModal />} */}
+        {<ReviewFormModal />}
     </div>
   )
 }
