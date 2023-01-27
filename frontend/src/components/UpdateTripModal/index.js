@@ -7,7 +7,7 @@ export default function LoginFormModal({text}) {
 
   return (
     <>
-      <div className='loginFormModalButton clickable' onClick={() => setShowModal(true)}>{text}</div>
+      <div className='loginFormModalButton clickable bold' onClick={() => setShowModal(true)}>{text}</div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <LoginForm />

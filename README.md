@@ -1,24 +1,30 @@
-# README
+# AirBbB
+[live website](https://airbbb-1zn2.onrender.com/)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Background
+background background background
 
-Things you may want to cover:
+## Technology
+- **React** - An frontend library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies.
+- **Redux** - A predictable state container for JavaScript apps.
 
-* Ruby version
+## Features
+### User Authentication - Login/Signup
+description
+<img src="./readmepics/signup.gif" alt="text" width="800"/>
+<img src="./readmepics/screeshot.png" alt="text" width="800"/>
 
-* System dependencies
+### Listing & Book Trip
+description
+<img src="./readmepics/signup.gif" alt="text" width="800"/>
+<img src="./readmepics/screeshot.png" alt="text" width="800"/>
 
-* Configuration
+### Trips
+description
+<img src="./readmepics/signup.gif" alt="text" width="800"/>
+<img src="./readmepics/screeshot.png" alt="text" width="800"/>
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Review
+description
+<img src="./readmepics/signup.gif" alt="text" width="800"/>
+<img src="./readmepics/screeshot.png" alt="text" width="800"/>
