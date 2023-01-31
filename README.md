@@ -19,17 +19,17 @@ User can signup or login into their account.
 <img src="./readmepics/screeshot.png" alt="text" width="800"/>
 
 ### Listing & Book Trip
-description
-<img src="./readmepics/signup.gif" alt="text" width="800"/>
+User can check out a listing and see what
+<img src="./readmepics/listing.gif" alt="text" width="800"/>
 <img src="./readmepics/screeshot.png" alt="text" width="800"/>
 
 ### Trips
 description
-<img src="./readmepics/signup.gif" alt="text" width="800"/>
+<img src="./readmepics/booking.gif" alt="text" width="800"/>
+<img src="./readmepics/booking2.gif" alt="text" width="800"/>
 <img src="./readmepics/screeshot.png" alt="text" width="800"/>
 
 ### Review
 description
 <img src="./readmepics/signup.gif" alt="text" width="800"/>
 <img src="./readmepics/screeshot.png" alt="text" width="800"/>
-
