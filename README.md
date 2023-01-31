@@ -14,22 +14,22 @@ This website is a Full Stack clone of AirBnB, you can click on a post and read d
 
 ## Features
 ### User Authentication - Login/Signup
-User can signup or login into their account.
+User can signup or login into their account. Backend uses BCrypt to authenticate users.
 <img src="./readmepics/signup.gif" alt="text" width="800"/>
-<img src="./readmepics/screeshot.png" alt="text" width="800"/>
+<img src="./readmepics/bcrypt.png" alt="text" width="800"/>
 
 ### Listing & Book Trip
 User can check out a listing and see what
 <img src="./readmepics/listing.gif" alt="text" width="800"/>
-<img src="./readmepics/screeshot.png" alt="text" width="800"/>
+<!-- <img src="./readmepics/screeshot.png" alt="text" width="800"/> -->
 
 ### Trips
-description
+User can book, change or delete trips.
 <img src="./readmepics/booking.gif" alt="text" width="800"/>
 <img src="./readmepics/booking2.gif" alt="text" width="800"/>
-<img src="./readmepics/screeshot.png" alt="text" width="800"/>
+<!-- <img src="./readmepics/screeshot.png" alt="text" width="800"/> -->
 
 ### Review
-description
-<img src="./readmepics/signup.gif" alt="text" width="800"/>
-<img src="./readmepics/screeshot.png" alt="text" width="800"/>
+User can write or delete reviews they wrote.
+<img src="./readmepics/review.gif" alt="text" width="800"/>
+<!-- <img src="./readmepics/screeshot.png" alt="text" width="800"/> -->
