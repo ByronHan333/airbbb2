@@ -64,7 +64,7 @@ table {
   src: url("../public/assets/Airbnb_Cereal-Book.woff2");
 }
 
-* {
+body {
   font-family: "Airbnb_Cereal-Book";
 }
 

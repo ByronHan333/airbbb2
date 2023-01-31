@@ -14,7 +14,7 @@ This website is a Full Stack clone of AirBnB, you can click on a post and read d
 
 ## Features
 ### User Authentication - Login/Signup
-User can signup or login into their account. 
+User can signup or login into their account.
 <img src="./readmepics/signup.gif" alt="text" width="800"/>
 <img src="./readmepics/screeshot.png" alt="text" width="800"/>
 
@@ -32,3 +32,4 @@ description
 description
 <img src="./readmepics/signup.gif" alt="text" width="800"/>
 <img src="./readmepics/screeshot.png" alt="text" width="800"/>
+
