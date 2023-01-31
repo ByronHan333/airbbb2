@@ -62,13 +62,13 @@ export default function ReservationForm({trip, listing, sessionUser}) {
       <div className="form-input">
         <div className="form-input-date">
           <div className='form-checkin'>
-            <div>CHECK-IN</div>
+            <div className='bold'>CHECK-IN</div>
             <input placeholder={currentDate} className="date-input" type="date" value={startDate}
             onChange={(e) => setStartDate(e.target.value)} required
             min={moment().format("YYYY-MM-DD")}/>
           </div>
           <div className='form-checkout'>
-            <div>CHECK-OUT</div>
+            <div className='bold'>CHECK-OUT</div>
             <input placeholder={trip?.endDate} className="date-input" type="date" value={endDate}
             onChange={(e) => {
               setEndDate(e.target.value)
@@ -77,7 +77,7 @@ export default function ReservationForm({trip, listing, sessionUser}) {
           </div>
         </div>
         <div className="form-num-guest">
-          <div>GUESTS</div>
+          <div className='bold'>GUESTS</div>
           <label>
             <select className="num-guests" onChange={(e) => setNumGuests(e.target.value)}>
             {[...Array(listing.numBeds).keys()].map(n => {

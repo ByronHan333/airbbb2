@@ -2,15 +2,19 @@
 [live website](https://airbbb-1zn2.onrender.com/)
 
 ## Background
-background background background
+This website is a Full Stack clone of AirBnB, you can click on a post and read details of the listing. Then you can create/update/remove a listing, book/update/remove a trip, and write/update/remove a review.
 
 ## Technology
 - **React** - An frontend library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies.
-- **Redux** - A predictable state container for JavaScript apps.
+- **Redux** - A predictable, centralized state container for JavaScript apps.
+- **Ruby on Rails** - Backend framework will boiler plate to develop MVC workflow.
+- **BCrypt** - User auth package to generate password hash with salt.
+- **Database** - PostgreSQL.
+- **Other** AWS for image storage and uploads, Google Map API.
 
 ## Features
 ### User Authentication - Login/Signup
-description
+User can signup or login into their account.
 <img src="./readmepics/signup.gif" alt="text" width="800"/>
 <img src="./readmepics/screeshot.png" alt="text" width="800"/>
 
@@ -28,3 +32,4 @@ description
 description
 <img src="./readmepics/signup.gif" alt="text" width="800"/>
 <img src="./readmepics/screeshot.png" alt="text" width="800"/>
+

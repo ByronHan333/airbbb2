@@ -68,7 +68,7 @@ export default function ListingIndividualPage() {
           </div>
           <div className='solid-line'></div>
           <div className="listing-review-index-container">
-          <ReviewIndex reviews={reviews} listingId={listingId}/>
+            <ReviewIndex reviews={reviews} listingId={listingId}/>
           </div>
         </div>
         <div className="listing-reserve">

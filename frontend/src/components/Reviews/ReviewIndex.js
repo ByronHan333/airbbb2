@@ -25,7 +25,7 @@ function ReviewCard({review}) {
       <div className="review-card-rating-avg">{rating}</div>
       <div className="review-card-content">{content}</div>
       {/* <div className="review-card-update" onClick={(e) => updateReview(e, review)}>Update Review</div> */}
-      {/* {sessionUser.id == review.userId && onListingPage ? <div className="review-card-delete" onClick={(e) => deleteReview(e, review)}>Delete Review</div> : <div></div>} */}
+      {sessionUser.id == review.userId ? <div className="review-card-delete" onClick={(e) => deleteReview(e, review)}>Delete Review</div> : <div></div>}
     </div>
   )
 }
