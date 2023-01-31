@@ -21,15 +21,15 @@ User can signup or login into their account. Backend uses BCrypt to authenticate
 ### Listing & Book Trip
 User can check out a listing and see what
 <img src="./readmepics/listing.gif" alt="text" width="800"/>
-<!-- <img src="./readmepics/screeshot.png" alt="text" width="800"/> -->
+<img src="./readmepics/listing.png" alt="text" width="800"/>
 
 ### Trips
 User can book, change or delete trips.
 <img src="./readmepics/booking.gif" alt="text" width="800"/>
 <img src="./readmepics/booking2.gif" alt="text" width="800"/>
-<!-- <img src="./readmepics/screeshot.png" alt="text" width="800"/> -->
+<img src="./readmepics/trip.png" alt="text" width="800"/>
 
 ### Review
 User can write or delete reviews they wrote.
 <img src="./readmepics/review.gif" alt="text" width="800"/>
-<!-- <img src="./readmepics/screeshot.png" alt="text" width="800"/> -->
+<!-- <img src="./readmepics/review.png" alt="text" width="800"/> -->
