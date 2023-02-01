@@ -1,0 +1,22 @@
+.price-info{
+  position: absolute;
+  top: -158px;
+  right: -87px;
+  height: 158px;
+  background-color: #fafdf3;
+  border-radius: 5px;
+  font-size: 13px;
+  text-align: center;
+  color: black;
+  line-height: 17px;
+  z-index: 100;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 0px 1px #9f9f9f, 0 0 1px 2px #9f9f9f;
+}
+
+.price-info-photo{
+  width: 150px;
+  height: 95px;
+  border-radius: 10px;
+}

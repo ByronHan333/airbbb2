@@ -47,6 +47,25 @@ export const createReview = (review) => async dispatch => {
   }
 }
 
+export const updateReview = (review) => async dispatch => {
+  const response = await csrfFetch(`/api/reviews/${review.id}`, {
+    method: 'PUT',
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(review)
+  });
+  if (response.ok) {
+    // const data = await response.json();
+    // dispatch(receiveTrips(data.trips));
+    return true
+  } else {
+    console.log('createTrips error')
+    return false
+  }
+}
+
 export const deleteReview = (reviewId) => async dispatch => {
   const response = await csrfFetch(`/api/reviews/${reviewId}`, {
     method: 'DELETE'

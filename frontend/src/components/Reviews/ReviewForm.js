@@ -51,10 +51,10 @@ IconContainer.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-function StyledRatingContainer({setState}) {
+function StyledRatingContainer({setState, value}) {
   return <StyledRating
           name="highlight-selected-only"
-          defaultValue={5}
+          defaultValue={value || 5}
           IconContainerComponent={IconContainer}
           getLabelText={(value) => customIcons[value].label}
           onChange={(event, newValue) => {
@@ -67,7 +67,7 @@ function StyledRatingContainer({setState}) {
 
 
 
-export default function ReviewForm({sessionUser, trip, listing}) {
+export default function ReviewForm({sessionUser, trip, listing, review}) {
   const [overall, setOverall] = useState(5);
   const [cleaniness, setCleaniness] = useState(5);
   const [accuracy, setAccuracy] = useState(5);
@@ -79,20 +79,42 @@ export default function ReviewForm({sessionUser, trip, listing}) {
   const dispatch = useDispatch()
 
   const handleSubmit = (e) => {
+    console.log(sessionUser)
+    console.log(review)
     e.preventDefault()
-    dispatch(reviewActions.createReview({
-      user_id: sessionUser.id,
-      trip_id: trip.id,
-      listing_id: listing.id,
-      overall,
-      cleaniness,
-      accuracy,
-      communication,
-      location,
-      arrival,
-      content
-    }))
-    history.push(`/listings/${listing.id}`)
+    if (review) {
+      dispatch(reviewActions.updateReview({
+        id: review.id,
+        userId: review.userId,
+        tripId: review.tripId,
+        listingId: review.listingId,
+        overall,
+        cleaniness,
+        accuracy,
+        communication,
+        location,
+        arrival,
+        content
+      }))
+      // history.push(`/listings/${review.listingId}`)
+      window.location.reload(false);
+
+    } else {
+      dispatch(reviewActions.createReview({
+        user_id: sessionUser.id,
+        trip_id: trip.id,
+        listing_id: listing.id,
+        overall,
+        cleaniness,
+        accuracy,
+        communication,
+        location,
+        arrival,
+        content
+      }))
+      history.push(`/listings/${listing.id}`)
+      window.scrollTo(0,0)
+    }
   }
 
   return (
@@ -100,33 +122,33 @@ export default function ReviewForm({sessionUser, trip, listing}) {
       <div className="review-left">
         <div className="review-ratings-1">
           <p className='medium'>Overall</p>
-          <StyledRatingContainer setState={setOverall}/>
+          <StyledRatingContainer setState={setOverall} value={review?.overall}/>
         </div>
         <div className="review-ratings-2">
           <p className='medium'>Cleaniess</p>
-          <StyledRatingContainer setState={setCleaniness} />
+          <StyledRatingContainer setState={setCleaniness} value={review?.cleaniness}/>
         </div>
         <div className="review-ratings-3">
           <p className='medium'>Accuracy</p>
-          <StyledRatingContainer setState={setAccuracy} />
+          <StyledRatingContainer setState={setAccuracy} value={review?.accuracy}/>
         </div>
         <div className="review-ratings-4">
           <p className='medium'>Communication</p>
-          <StyledRatingContainer setState={setCommunication} />
+          <StyledRatingContainer setState={setCommunication} value={review?.communication}/>
         </div>
         <div className="review-ratings-5">
           <p className='medium'>Arrival</p>
-          <StyledRatingContainer setState={setArrival} />
+          <StyledRatingContainer setState={setArrival} value={review?.arrival}/>
         </div>
         <div className="review-ratings-6">
           <p className='medium'>Location</p>
-          <StyledRatingContainer setState={setLocation} />
+          <StyledRatingContainer setState={setLocation} value={review?.location}/>
         </div>
       </div>
 
       <div className="review-right">
         <div className="review-right-message medium">How do you like this place?</div>
-        <textarea className="review-right-textarea" rows="10" cols="50" onChange={(e) => setContent(e.target.value)}></textarea>
+        <textarea className="review-right-textarea" rows="10" cols="50" onChange={(e) => setContent(e.target.value)} defaultValue={review?.content}></textarea>
         <input type="submit" className='review-button cursor' value="Submit Review"></input>
       </div>
     </form>

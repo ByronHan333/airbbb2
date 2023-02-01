@@ -18,6 +18,7 @@ export default function ListingIndexPage() {
   const handleClick = (listingId) => {
     // e.preventDefault()
     history.push(`/listings/${listingId}`)
+    window.scrollTo(0,0)
   }
 
   return (

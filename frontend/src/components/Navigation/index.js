@@ -10,6 +10,7 @@ import { ModalContext } from '../../context/Modal';
 import DropdownButton from './DropdownButton'
 import DropdownCard from './DropdownCard'
 import Filter from './Filter'
+import linkedin from '../../assets/images/linkedin.png'
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
@@ -37,12 +38,13 @@ function Navigation() {
         <img src={logo} alt="nan" className='logo-img'/>
         <p className='logo-text bold'>airbbb</p>
       </NavLink>
-      {/* <div className='search'>
-        <div className='search-anywhere'><p>Anywhere</p></div>
-        <div className='search-anyweek'><p>Any week</p></div>
-        <div className='search-addguest'>Add guests</div>
-        <i className="fa-solid fa-magnifying-glass search-mag"></i>
-      </div> */}
+      <div className='nav-about'>
+        <a href="https://www.linkedin.com/in/ziyuan-byron-han/" className='bold'>LinkedIn</a>
+        <a href="https://github.com/ByronHan333" className='bold'>GitHub</a>
+        <a href="https://angel.co/u/byron-han-2" className='bold'>Angelist</a>
+        <a href="https://www.ziyuanhan.com/" className='bold'>Portfolio</a>
+        {/* <i className="fa-solid fa-magnifying-glass search-mag"></i> */}
+      </div>
       <div className='dropdown' ref={drop}>
         <DropdownButton user={sessionUser} onClick={() => setshowDropdown(showDropdown => !showDropdown)}/>
         {showDropdown && <DropdownCard user={sessionUser}/>}
