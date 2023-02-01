@@ -35,6 +35,7 @@ export default function ReviewIndex({reviews, listingId}) {
   const history = useHistory()
   const createReview = () => {
     history.push(`/review/${listingId}/new`)
+    window.scrollTo(0,0)
   }
 
   return (

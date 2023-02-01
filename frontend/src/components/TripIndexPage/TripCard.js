@@ -14,16 +14,19 @@ export default function TripCard({trip, listing}) {
     e.preventDefault();
     dispatch(tripActions.deleteTrip(trip.id));
     history.push(`/trips`)
+    window.scrollTo(0,0)
   }
 
   const handleUpdate = (e, trip) => {
     e.preventDefault();
     history.push(`/trips/${trip.id}/edit`)
+    window.scrollTo(0,0)
   }
 
   const handleCreateReview = (e) => {
     e.preventDefault();
     history.push(`/reviews/new`, {listing: listing, trip: trip})
+    window.scrollTo(0,0)
   }
 
   const tripStartDate = moment(trip.startDate, 'YYYY-MM-DD');

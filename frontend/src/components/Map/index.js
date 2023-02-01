@@ -11,6 +11,7 @@ import './Map.css'
 import {styles} from './MapStyles'
 import SingleListingGrid from '../SingleListingGrid'
 import { useHistory } from "react-router-dom";
+import './PriceInfo.css'
 
 export default function Map({ownedListings}) {
   const dispatch = useDispatch()
@@ -22,16 +23,28 @@ export default function Map({ownedListings}) {
   if (ownedListings) {
     listings = ownedListings;
   }
-
-
-
   return <MapContainer listings={Object.values(listings)} center={{lat:37.773972, lng:-122.431297}}/>
 }
 
-export function PriceCard({list, onClick}) {
+export function PriceInfo({list}) {
+  console.log("on mouse over")
+  console.log(list);
   return (
-    <div className="map-price-card cursor" onClick={onClick}>
+    <div className='price-info'>
+      <img className="price-info-photo" src={list.photoUrls[0]} alt="" />
+      <p className="bold">{list?.address}</p>
+      <p className="">{list?.title}</p>
+      <p className="">${list?.price} night</p>
+    </div>
+  )
+}
+
+export function PriceCard({list, onClick}) {
+  const [condition, setCondition] = useState(false)
+  return (
+    <div className="map-price-card cursor" onClick={onClick} onMouseOver={()=>setCondition(true)} onMouseOut={()=>setCondition(false)}>
       <p>$ {list.price}</p>
+      {condition ? <PriceInfo list={list}/> : null}
     </div>
   )
 }
@@ -47,6 +60,7 @@ export function MapContainer({listings, center}) {
   const priceCardOnClick = (e, list) => {
     e.preventDefault()
     history.push(`/listings/${list.id}`)
+    window.scrollTo(0,0)
   }
 
   if (!isLoaded) return <div>Loading...</div>
