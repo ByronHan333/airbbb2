@@ -5,7 +5,7 @@ import LoginForm from '../LoginFormModal/LoginForm';
 import { useSelector } from 'react-redux';
 import './ReviewFormModal.css'
 
-export default function ReviewFormModal() {
+export default function ReviewFormModal({text, trip, listing, review}) {
   const [showModal, setShowModal] = useState(false);
   const sessionUser = useSelector(state => state.session.user)
 
@@ -15,11 +15,11 @@ export default function ReviewFormModal() {
   }
 
   return (
-    <div className='review-form-outer-modal'>
-      <div className="review-create-button clickable" onClick={() => setShowModal(true)}>Write review</div>
+    <div>
+      <div className={`review-update-button clickable bold`} onClick={() => setShowModal(true)}>{text}</div>
       {showModal && (
         <Modal onClose={handleClick}>
-          {sessionUser ? <ReviewForm /> : <LoginForm />}
+          {sessionUser ? <ReviewForm sessionUser={sessionUser} trip={trip} listing={listing} review={review}/> : <LoginForm />}
         </Modal>
       )}
     </div>

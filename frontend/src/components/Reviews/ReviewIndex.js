@@ -25,7 +25,8 @@ function ReviewCard({review}) {
       <div className="review-card-rating-avg">{rating}</div>
       <div className="review-card-content">{content}</div>
       {/* <div className="review-card-update" onClick={(e) => updateReview(e, review)}>Update Review</div> */}
-      {sessionUser.id == review.userId ? <div className="review-card-delete" onClick={(e) => deleteReview(e, review)}>Delete Review</div> : <div></div>}
+      {sessionUser && sessionUser.id == review.userId ? <ReviewFormModal text={'Update Review'} review={review}/> : null}
+      {sessionUser && sessionUser.id == review.userId ? <div className="review-card-delete bold" onClick={(e) => deleteReview(e, review)}>Delete Review</div> : null}
     </div>
   )
 }
@@ -40,10 +41,10 @@ export default function ReviewIndex({reviews, listingId}) {
     <div className="review-index">
       <div className="reviews-all">
         {Object.values(reviews).map(review => {
-          return <div><ReviewCard review={review} /></div>
+          return <div key={review.id}><ReviewCard review={review} /></div>
         })}
       </div>
-        {<ReviewFormModal />}
+        {/* {<ReviewFormModal />} */}
     </div>
   )
 }

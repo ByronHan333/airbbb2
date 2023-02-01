@@ -93,7 +93,7 @@ export default function ReservationForm({trip, listing, sessionUser}) {
       </div>
       <div className="form-service-fee">
         <div className="form-service-fee-left">Service fee:</div>
-        <div className="form-service-fee-left">$ {20 * numDays}</div>
+        <div className="form-service-fee-left">$ {20 * numDays * numGuests}</div>
       </div>
       <div className="form-total-cost">
         <div className="form-total-cost-left medium">Total cost:</div>
