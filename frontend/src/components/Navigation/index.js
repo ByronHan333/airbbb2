@@ -24,9 +24,7 @@ function Navigation() {
         setshowDropdown(false)
       }
     }
-
     document.addEventListener('click', handleClick);
-
     return () => {
       document.removeEventListener('click', handleClick)
     }
@@ -46,7 +44,7 @@ function Navigation() {
         {/* <i className="fa-solid fa-magnifying-glass search-mag"></i> */}
       </div>
       <div className='dropdown' ref={drop}>
-        <DropdownButton user={sessionUser} onClick={() => setshowDropdown(showDropdown => !showDropdown)}/>
+        <DropdownButton user={sessionUser} onClick={() => setshowDropdown(showDropdown => !showDropdown)} />
         {showDropdown && <DropdownCard user={sessionUser}/>}
       </div>
     </div>
