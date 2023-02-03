@@ -4,10 +4,11 @@ import LoginForm from './LoginForm';
 
 export default function LoginFormModal({text}) {
   const [showModal, setShowModal] = useState(false);
+  console.log(text);
 
   return (
     <>
-      <div className='loginFormModalButton clickable bold' onClick={() => setShowModal(true)}>{text}</div>
+      <div className={`loginFormModalButton clickable ${text=="Reserve" ? 'bold' : null}`} onClick={() => setShowModal(true)}>{text}</div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <LoginForm />

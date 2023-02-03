@@ -39,7 +39,7 @@ function Navigation() {
       <div className='nav-about'>
         <a href="https://www.linkedin.com/in/ziyuan-byron-han/" className='bold'>LinkedIn</a>
         <a href="https://github.com/ByronHan333" className='bold'>GitHub</a>
-        <a href="https://angel.co/u/byron-han-2" className='bold'>Angelist</a>
+        <a href="https://angel.co/u/byron-han-2" className='bold'>Wellfound(Angelist)</a>
         <a href="https://www.ziyuanhan.com/" className='bold'>Portfolio</a>
         {/* <i className="fa-solid fa-magnifying-glass search-mag"></i> */}
       </div>
