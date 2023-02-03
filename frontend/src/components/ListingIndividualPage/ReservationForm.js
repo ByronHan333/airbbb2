@@ -67,7 +67,7 @@ export default function ReservationForm({trip, listing, sessionUser}) {
             <div className='bold'>CHECK-IN</div>
             <input placeholder={currentDate} className="date-input" type="date" value={startDate}
             onChange={(e) => setStartDate(e.target.value)} required
-            min={moment().format("YYYY-MM-DD")}/>
+            min={moment().add(1,'days').format("YYYY-MM-DD")} max={endDate ? endDate : null}/>
           </div>
           <div className='form-checkout'>
             <div className='bold'>CHECK-OUT</div>
@@ -75,7 +75,7 @@ export default function ReservationForm({trip, listing, sessionUser}) {
             onChange={(e) => {
               setEndDate(e.target.value)
             }} required
-            min={startDate ? startDate : moment().format("YYYY-MM-DD")}/>
+            min={startDate ? startDate : moment().add(1,'days').format("YYYY-MM-DD")}/>
           </div>
         </div>
         <div className="form-num-guest">
