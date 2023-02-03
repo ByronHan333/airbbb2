@@ -8,8 +8,12 @@ import './ReservationForm.css'
 
 
 export default function ReservationForm({trip, listing, sessionUser}) {
-  const [startDate, setStartDate] = useState(trip.startDate);
-  const [endDate, setEndDate] = useState(trip.endDate);
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
+  if (trip) {
+    setStartDate(trip.startDate)
+    setEndDate(trip.endDate)
+  }
   const [numGuests, setNumGuests] = useState(1);
   const history = useHistory()
   const dispatch = useDispatch();
