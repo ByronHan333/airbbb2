@@ -8,8 +8,8 @@ import './ReservationForm.css'
 
 
 export default function ReservationForm({trip, listing, sessionUser}) {
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
+  const [startDate, setStartDate] = useState(trip.startDate);
+  const [endDate, setEndDate] = useState(trip.endDate);
   const [numGuests, setNumGuests] = useState(1);
   const history = useHistory()
   const dispatch = useDispatch();
@@ -37,6 +37,7 @@ export default function ReservationForm({trip, listing, sessionUser}) {
       }))
       if (result) {
         history.push("/trips");
+        window.location.reload(true)
         window.scrollTo(0,0)
       }
     } else if (sessionUser && tripId) {
@@ -52,6 +53,7 @@ export default function ReservationForm({trip, listing, sessionUser}) {
       }))
       if (result) {
         history.push("/trips");
+        window.location.reload(true)
         window.scrollTo(0,0)
       }
     }
