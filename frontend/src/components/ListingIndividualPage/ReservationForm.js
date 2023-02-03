@@ -37,6 +37,7 @@ export default function ReservationForm({trip, listing, sessionUser}) {
       }))
       if (result) {
         history.push("/trips");
+        window.location.reload(true)
         window.scrollTo(0,0)
       }
     } else if (sessionUser && tripId) {
@@ -52,6 +53,7 @@ export default function ReservationForm({trip, listing, sessionUser}) {
       }))
       if (result) {
         history.push("/trips");
+        window.location.reload(true)
         window.scrollTo(0,0)
       }
     }
