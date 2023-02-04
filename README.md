@@ -15,7 +15,7 @@ This website is a Full Stack clone of AirBnB, you can click on a post and read d
 ## Features
 ### User Authentication - Login/Signup
 User can signup or login into their account. Backend uses BCrypt to authenticate users.
-<img src="./readmepics/signup.gif" alt="text" width="800"/>
+<img src="./readmepics/signup2.gif" alt="text" width="800"/>
 <img src="./readmepics/bcrypt.png" alt="text" width="800"/>
 
 ### Listing & Book Trip
