@@ -27,8 +27,6 @@ export default function Map({ownedListings}) {
 }
 
 export function PriceInfo({list}) {
-  console.log("on mouse over")
-  console.log(list);
   return (
     <div className='price-info'>
       <img className="price-info-photo" src={list.photoUrls[0]} alt="" />

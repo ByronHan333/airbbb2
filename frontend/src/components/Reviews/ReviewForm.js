@@ -79,8 +79,6 @@ export default function ReviewForm({sessionUser, trip, listing, review}) {
   const dispatch = useDispatch()
 
   const handleSubmit = (e) => {
-    console.log(sessionUser)
-    console.log(review)
     e.preventDefault()
     if (review) {
       dispatch(reviewActions.updateReview({

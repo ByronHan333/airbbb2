@@ -7,23 +7,10 @@ import './TripCard.css'
 import { useEffect } from "react";
 import * as reviewsActions from "../../store/review";
 
-export default function TripCard({trip, listing}) {
-  const sessionUser = useSelector(state => state.session.user);
+export default function TripCard({trip, listing, reviewed}) {
   const currentDate = moment();
   const dispatch = useDispatch();
   const history = useHistory();
-  const reviews = useSelector(state => state.reviews);
-
-  let reviewed = false;
-  for (const review of Object.values(reviews)) {
-    if (review.userId === sessionUser.id) {
-      reviewed = true;
-    }
-  }
-
-  useEffect(() => {
-    dispatch(reviewsActions.fetchReviews(trip.listingId));
-  }, [dispatch, trip])
 
   const handleDelete = (e, trip) => {
     e.preventDefault();

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import * as tripActions from '../../store/trip'
 import { Modal } from '../../context/Modal';
 import LoginForm from '../LoginFormModal/LoginForm';
+import * as reviewsActions from "../../store/review";
 import moment from 'moment'
 import './TripIndexPage.css'
 import { useHistory } from "react-router-dom";
@@ -12,11 +13,14 @@ export default function TripIndexPage() {
   const sessionUser = useSelector(state => state.session.user);
   const trips = Object.values(useSelector(state => state.trips));
   const listings = useSelector(state => state.listings);
+  const reviews = useSelector(state => state.reviews);
+  const reviewTripIds = Object.values(reviews).map(review => review.tripId)
   const dispatch = useDispatch();
   const currentDate = moment();
 
   useEffect(() => {
     dispatch(tripActions.fetchTrips());
+    dispatch(reviewsActions.fetchAllReviews(sessionUser.id));
   }, [dispatch, sessionUser])
 
   if (!sessionUser) return (
@@ -45,7 +49,7 @@ export default function TripIndexPage() {
         {trips.map(trip => {
           const tripStartDate = moment(trip.startDate, 'YYYY-MM-DD');
           if (tripStartDate.toDate() <= currentDate.toDate()) {
-            return <TripCard key={trip.id} trip={trip} listing={listings[trip.listingId]} />
+            return reviewTripIds.includes(trip.id) ?  <TripCard key={trip.id} trip={trip} listing={listings[trip.listingId]} reviewed={true} /> : <TripCard key={trip.id} trip={trip} listing={listings[trip.listingId]} reviewed={false} />
           }
         })}
       </div>

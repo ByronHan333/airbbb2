@@ -4,7 +4,6 @@ import LoginForm from './LoginForm';
 
 export default function LoginFormModal({text}) {
   const [showModal, setShowModal] = useState(false);
-  console.log(text);
 
   return (
     <>

@@ -13,8 +13,6 @@ export default function ReservationForm({trip, listing, sessionUser}) {
   if (trip && !startDate && !endDate) {
     setStartDate(trip.startDate)
     setEndDate(trip.endDate)
-    console.log(startDate)
-    console.log(moment(startDate, 'YYYY-MM-DD').add(1,'days').format("YYYY-MM-DD"))
   }
   const [numGuests, setNumGuests] = useState(1);
   const history = useHistory()

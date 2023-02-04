@@ -28,6 +28,16 @@ export const fetchReviews = (listingId) => async dispatch => {
   }
 }
 
+export const fetchAllReviews = () => async dispatch => {
+  const response = await csrfFetch(`/api/reviews`);
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(receiveReviews(data.reviews));
+  } else {
+    console.log('getReviews error')
+  }
+}
+
 export const createReview = (review) => async dispatch => {
   const response = await csrfFetch(`/api/reviews`, {
     method: 'POST',
