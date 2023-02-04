@@ -166,6 +166,15 @@ puts "Creating trips..."
 trip = Trip.create!(
   user_id: user1.id,
   listing_id: 1,
+  start_date: Date.new(2022,1,16),
+  end_date: Date.new(2022,1,23),
+  num_guests: 4,
+  total_price: Listing.find(1).price*7,
+)
+
+trip = Trip.create!(
+  user_id: user1.id,
+  listing_id: 1,
   start_date: Date.new(2022,1,1),
   end_date: Date.new(2022,1,7),
   num_guests: 4,
