@@ -80,7 +80,7 @@ const initialState = {};
 const ReviewReducer = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_REVIEWS:
-      return { ...state, ...action.payload };
+      return { ...action.payload };
     case REMOVE_REVIEW:
       const newState = { ...state }
       delete newState[action.payload]

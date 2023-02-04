@@ -49,7 +49,16 @@ addresses = [
   'Oakland, California',
   'San Francisco, California',
   'Sausalito, California',
-  'Berkeley, California'
+  'Berkeley, California',
+  'Alameda, California',
+  'Daly City, California',
+  'Eastport, California',
+  'Sausalito, California',
+  'San Francisco, California',
+  'Tiburon, California',
+  'Oakland, California',
+  'San Mateo, California',
+  'San Francisco, California'
 ]
 
 latlon = [
@@ -64,7 +73,16 @@ latlon = [
   [37.864260, -122.289569],
   [37.910430, -122.359421],
   [37.908363, -122.479041],
-  [37.804265, -122.419667]
+  [37.804265, -122.419667],
+  [37.775079, -122.283738],
+  [37.689242, -122.495093],
+  [37.845783, -122.187580],
+  [37.838264, -122.542696],
+  [37.734056, -122.461295],
+  [37.882988, -122.458439],
+  [37.816833, -122.289450],
+  [37.568601, -122.318012],
+  [37.768306, -122.506042]
 ]
 
 titles = [
@@ -79,7 +97,16 @@ titles = [
   'Coastal Estate w Hot Tub Ocean',
   'Oceanfront Beach House',
   'Oceanfront Boho Retreat - Pacific Sunset Views',
-  'Ideally Located San Francisco Bay Home'
+  'Ideally Located San Francisco Bay Home',
+  'Among The Stars Tiny home with views',
+  'Beach Front Vacation Home',
+  'The Lonsdale Cabin is on a quiet ranch',
+  'The Alpaca (A Lone Juniper Ranch Cabin)',
+  'Studio Cottage',
+  'Paradise in the Hills of Wine Country',
+  'Best Reno River Suite',
+  'Private Castle Accommodation',
+  'Fairy Tale Castle On 2000-acre Estate by the sea'
 ]
 
 descriptions = [
@@ -94,14 +121,23 @@ descriptions = [
   'Perched right on the bluff and with AMAZING views of the waves rolling in down the full length of Dillon Beach, stepping inside of Sea Glass will absolutely take your breath away!',
   'Walking access to the best State Beaches in the area, award winning restaurants, the Half Moon Bay Harbor, Hiking & Biking along the California Coastal Trail, Family activities in the area and so much more.',
   'Remodeled oceanfront home with sweeping Pacific views and whale watching! Ultra clean and comfortable. The perfect cozy boho getaway for couples, families and travelers.',
-  'Boasting waterfront views and a bright sunroom, this 2-bedroom, 2-bathroom Alameda vacation rental invites you to experience the best of the Bay area! Sitting less than 20 miles from top attractions, this townhome will have you out the door and grabbing a bite of clam chowder at Fisherman’s Wharf or taking a tour of Alcatraz Island in no time.'
+  'Boasting waterfront views and a bright sunroom, this 2-bedroom, 2-bathroom Alameda vacation rental invites you to experience the best of the Bay area! Sitting less than 20 miles from top attractions, this townhome will have you out the door and grabbing a bite of clam chowder at Fisherman’s Wharf or taking a tour of Alcatraz Island in no time.',
+  'This home is not elderly friendly, as you have to climb stairs to get into the lofts to sleep. It is mostly geared towards those guests seeking to explore all the area has to offer with a fun and memorable place to recharge.',
+  'Welcome to Chez Mondo, a bright and airy, stylish family home on the longest stretch of sandy beach. Stairs on the deck lead down to the south end of Mondos Cove where you can surf, boogie board or just play in the ocean. This house will not only give you a peaceful getaway but also the opportunity to discover the charming stores in downtown Ventura nearby.',
+  'The Lonsdale cabin is located in picturesque Sierra Meadows Ranch just on the edge of town in Mammoth Lakes, CA. The cabin sleeps up to 4 people. The cabin has a back bedroom with a queen-sized bed and a queen sofa bed in the living room. It is well-appointed with stainless steel appliances in the kitchen and has a full bathroom with a tub and shower.',
+  'The Most Amazing mountain cabin retreat on a Camelid Ranch! Enjoy the llama and Alpaca right by your window and pet them from your private fenced patio! The private, 100 + acres, mountain-top experience offers a 360-degree view of beautiful Southern California scenery. Ideal for star gazing & hiking, miles of trail access. Amazing sunrises/sunsets.',
+  'This is a small Studio cottage at the rear of my home.  It craftsmanesk in style with a partially open ceiling and a skylight. Its perfect for a couple or single person.  There is a swimming pool but its not heated, fine for swimming June to Oct depending on the weather, unless you are a polar bear.',
+  'Peaceful, secluded wooded retreat in the hills of wine country. but close to the area beautiful beaches.  Perfect for larger family groups and small groups alike.  Enjoy a glass of wine on one of the numerous decks and patios under the trees, then relax in the evening in the hot tub overlooking a beautiful glade.',
+  'Most luxurious Stearns & Foster Queen-sized bed & plush linens. Air conditioning & heating comfort. Hair dryer, clothes iron, and fresh towels provided',
+  'Kilcolgan Castle offers guests privacy and advice on touring the area if wanted. Close to the Burren, Connemara, Aran Islands and Cliffs of Moher for day trips. Short drive to Galway City. Homely atmosphere where you have full use of our spacious kitchen and all rooms but ours.',
+  'Bring alive fairytales in this Edwardian castle at the heart of private 2000 acres of glen walks, forests, 3 beaches, 2 lochs, walled and woodland gardens, maze, and 2 waterfalls. Comes with a stately reception rooms, 25 bedrooms and bathrooms, with luxurious amenities and a dedicated team. An award-winning, all-inclusive catering program is available. We host exclusive use and private events for up to 90 guests.'
 ]
 
 users = [1, 2]
 
 # More users
 
-12.times do |i|
+21.times do |i|
   listing = Listing.create!(
     title: titles[i],
     description: descriptions[i],
@@ -126,8 +162,9 @@ users = [1, 2]
 end
 
 puts "Creating trips..."
-Trip.create!(
-  user_id: 1,
+## user1 trips
+trip = Trip.create!(
+  user_id: user1.id,
   listing_id: 1,
   start_date: Date.new(2022,1,1),
   end_date: Date.new(2022,1,7),
@@ -136,8 +173,8 @@ Trip.create!(
 )
 
 Review.create!(
-  trip_id: 1,
-  user_id: 1,
+  trip_id: trip.id,
+  user_id: user1.id,
   listing_id: 1,
   overall: 5,
   cleaniness: 5,
@@ -148,8 +185,8 @@ Review.create!(
   content: "The host is super nice and showed us around."
 )
 
-Trip.create!(
-  user_id: 1,
+trip = Trip.create!(
+  user_id: user1.id,
   listing_id: 2,
   start_date: Date.new(2022,1,2),
   end_date: Date.new(2022,1,9),
@@ -158,8 +195,8 @@ Trip.create!(
 )
 
 Review.create!(
-  trip_id: 1,
-  user_id: 1,
+  trip_id: trip.id,
+  user_id: user1.id,
   listing_id: 2,
   overall: 5,
   cleaniness: 5,
@@ -170,9 +207,8 @@ Review.create!(
   content: "I recommend come here again!"
 )
 
-
-Trip.create!(
-  user_id: 1,
+trip = Trip.create!(
+  user_id: user1.id,
   listing_id: 3,
   start_date: Date.new(2022,1,3),
   end_date: Date.new(2022,1,10),
@@ -181,8 +217,8 @@ Trip.create!(
 )
 
 Review.create!(
-  trip_id: 1,
-  user_id: 1,
+  trip_id: trip.id,
+  user_id: user1.id,
   listing_id: 3,
   overall: 4,
   cleaniness: 4,
@@ -194,17 +230,61 @@ Review.create!(
 )
 
 
-Trip.create!(
-  user_id: 1,
+trip = Trip.create!(
+  user_id: user1.id,
   listing_id: 4,
   start_date: Date.new(2026,1,14),
   end_date: Date.new(2026,1,21),
   num_guests: 2,
-  total_price: Listing.find(3).price*7,
+  total_price: Listing.find(4).price*7,
 )
 
-Trip.create!(
-  user_id: 2,
+trip = Trip.create!(
+  user_id: user1.id,
+  listing_id: 4,
+  start_date: Date.new(2021,1,14),
+  end_date: Date.new(2021,1,21),
+  num_guests: 2,
+  total_price: Listing.find(4).price*7,
+)
+
+trip = Trip.create!(
+  user_id: user1.id,
+  listing_id: 2,
+  start_date: Date.new(2022,1,14),
+  end_date: Date.new(2022,1,21),
+  num_guests: 2,
+  total_price: Listing.find(2).price*7,
+)
+
+21.times do |i|
+  trip = Trip.create!(
+    user_id: user1.id,
+    listing_id: i+1,
+    start_date: Date.new(2021,11,8),
+    end_date: Date.new(2021,11,15),
+    num_guests: 3,
+    total_price: Listing.find(i+1).price*7,
+  )
+
+  Review.create!(
+    trip_id: trip.id,
+    user_id: user1.id,
+    listing_id: i+1,
+    overall: 5,
+    cleaniness: 5,
+    accuracy: 5,
+    communication: 5,
+    arrival: 5,
+    location: 5,
+    content: "AirBbB founder #{i+1}th trip, trying everywhere"
+  )
+end
+
+
+# user2 trips
+trip = Trip.create!(
+  user_id: user2.id,
   listing_id: 1,
   start_date: Date.new(2022,1,7),
   end_date: Date.new(2022,1,14),
@@ -213,8 +293,8 @@ Trip.create!(
 )
 
 Review.create!(
-  trip_id: 5,
-  user_id: 2,
+  trip_id: trip.id,
+  user_id: user2.id,
   listing_id: 1,
   overall: 5,
   cleaniness: 5,
@@ -224,6 +304,52 @@ Review.create!(
   location: 5,
   content: "would come next time"
 )
+
+21.times do |i|
+  trip = Trip.create!(
+    user_id: user2.id,
+    listing_id: i+1,
+    start_date: Date.new(2022,1,7),
+    end_date: Date.new(2022,1,14),
+    num_guests: 6,
+    total_price: Listing.find(i+1).price*7,
+  )
+
+  Review.create!(
+    trip_id: trip.id,
+    user_id: user2.id,
+    listing_id: i+1,
+    overall: 5,
+    cleaniness: 5,
+    accuracy: 5,
+    communication: 5,
+    arrival: 5,
+    location: 5,
+    content: "my #{i+1}th trip, feels good"
+  )
+
+  trip = Trip.create!(
+    user_id: user2.id,
+    listing_id: i+1,
+    start_date: Date.new(2022,5,7),
+    end_date: Date.new(2022,5,14),
+    num_guests: 2,
+    total_price: Listing.find(i+1).price*7,
+  )
+
+  Review.create!(
+    trip_id: trip.id,
+    user_id: user2.id,
+    listing_id: i+1,
+    overall: 4,
+    cleaniness: 4,
+    accuracy: 4,
+    communication: 4,
+    arrival: 4,
+    location: 4,
+    content: "2nd time here, no improvement"
+  )
+end
 
 
 puts "Done!"

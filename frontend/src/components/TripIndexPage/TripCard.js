@@ -4,11 +4,26 @@ import moment from 'moment'
 import './TripIndexPage.css'
 import { useHistory } from "react-router-dom";
 import './TripCard.css'
+import { useEffect } from "react";
+import * as reviewsActions from "../../store/review";
 
 export default function TripCard({trip, listing}) {
+  const sessionUser = useSelector(state => state.session.user);
   const currentDate = moment();
   const dispatch = useDispatch();
-  const history = useHistory()
+  const history = useHistory();
+  const reviews = useSelector(state => state.reviews);
+
+  let reviewed = false;
+  for (const review of Object.values(reviews)) {
+    if (review.userId === sessionUser.id) {
+      reviewed = true;
+    }
+  }
+
+  useEffect(() => {
+    dispatch(reviewsActions.fetchReviews(trip.listingId));
+  }, [dispatch, trip])
 
   const handleDelete = (e, trip) => {
     e.preventDefault();
@@ -29,6 +44,11 @@ export default function TripCard({trip, listing}) {
     window.scrollTo(0,0)
   }
 
+  const readReview = (e) => {
+    e.preventDefault();
+    history.push(`/listings/${trip.listingId}`)
+    window.scrollTo(0,0)
+  }
   const tripStartDate = moment(trip.startDate, 'YYYY-MM-DD');
   let img = listing?.photoUrls[0];
 
@@ -41,7 +61,10 @@ export default function TripCard({trip, listing}) {
     </div>
   } else {
     tripBottomRightComponent = <div className="trip-bottom-right">
+      {reviewed ?
+        <div className="trip-button cursor bold" onClick={(e) => readReview(e, trip)}>View Review</div> :
         <div className="trip-button cursor bold" onClick={(e)=>handleCreateReview(e, trip, listing)}>Post Review</div>
+      }
     </div>
   }
 

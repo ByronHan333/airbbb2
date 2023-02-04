@@ -24,7 +24,9 @@ export default function TripIndexPage() {
       <LoginForm />
     </Modal>
   )
+
   if (!trips) return <></>
+  if (!listings) return <></>
 
   return (
     <div className="trip-index">

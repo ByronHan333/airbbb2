@@ -112,7 +112,7 @@ export default function ReviewForm({sessionUser, trip, listing, review}) {
         arrival,
         content
       }))
-      history.push(`/listings/${listing.id}`)
+      // history.push(`/listings/${listing.id}`)
       window.scrollTo(0,0)
     }
   }
