@@ -10,9 +10,11 @@ import './ReservationForm.css'
 export default function ReservationForm({trip, listing, sessionUser}) {
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
-  if (trip) {
+  if (trip && !startDate && !endDate) {
     setStartDate(trip.startDate)
     setEndDate(trip.endDate)
+    console.log(startDate)
+    console.log(moment(startDate, 'YYYY-MM-DD').add(1,'days').format("YYYY-MM-DD"))
   }
   const [numGuests, setNumGuests] = useState(1);
   const history = useHistory()
@@ -73,7 +75,7 @@ export default function ReservationForm({trip, listing, sessionUser}) {
             <div className='bold'>CHECK-IN</div>
             <input placeholder={currentDate} className="date-input" type="date" value={startDate}
             onChange={(e) => setStartDate(e.target.value)} required
-            min={moment().add(1,'days').format("YYYY-MM-DD")} max={endDate ? endDate : null}/>
+            min={moment().add(1,'days').format("YYYY-MM-DD")} max={endDate ? moment(endDate, 'YYYY-MM-DD').add(-1,'days').format("YYYY-MM-DD") : null}/>
           </div>
           <div className='form-checkout'>
             <div className='bold'>CHECK-OUT</div>
@@ -81,7 +83,7 @@ export default function ReservationForm({trip, listing, sessionUser}) {
             onChange={(e) => {
               setEndDate(e.target.value)
             }} required
-            min={startDate ? startDate : moment().add(1,'days').format("YYYY-MM-DD")}/>
+            min={startDate ? moment(startDate, 'YYYY-MM-DD').add(1,'days').format("YYYY-MM-DD") : moment().add(1,'days').format("YYYY-MM-DD")}/>
           </div>
         </div>
         <div className="form-num-guest">
