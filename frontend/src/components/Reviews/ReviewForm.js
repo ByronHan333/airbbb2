@@ -94,7 +94,7 @@ export default function ReviewForm({sessionUser, trip, listing, review}) {
         arrival,
         content
       }))
-      // history.push(`/listings/${review.listingId}`)
+      history.push(`/listings/${review.listingId}`)
       window.location.reload(false);
 
     } else {
@@ -110,7 +110,7 @@ export default function ReviewForm({sessionUser, trip, listing, review}) {
         arrival,
         content
       }))
-      // history.push(`/listings/${listing.id}`)
+      history.push(`/listings/${listing.id}`)
       window.scrollTo(0,0)
     }
   }
